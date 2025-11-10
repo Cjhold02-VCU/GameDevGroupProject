@@ -4,6 +4,7 @@ Repository for our Group Project in "Intro to Game Development".
 ## Project Structure
 - This README.md is within the root of the repository. 
 - The GameDevGroupProject folder within the root is the Unity Project. (The .gitignore file must be within the Unity project to work.)
+- There is a 'Project Documents' Folder with any relevant documents we've created or homework assignments we've turned in.
 
 ## How to push and pull changes.
 *Make sure any commands are done from the **root** of the repository* 
