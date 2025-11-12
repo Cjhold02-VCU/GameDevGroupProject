@@ -25,6 +25,13 @@ public class PlayerMovement : MonoBehaviour
     public float airMultiplier;
     bool readyToJump;
 
+    [Header("Air Jumps")]
+    public int maxAirJumps = 1;
+    private int airJumpsLeft;
+
+    [Header("Bunny Hopping")]
+    public float slideBoostForce = 200f;
+
     [Header("Crouching")]
     public float crouchSpeed;
     public float crouchYScale;
@@ -80,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = true;
 
         readyToJump = true;
+        airJumpsLeft = maxAirJumps;
 
         startYScale = transform.localScale.y;
     }
@@ -95,7 +103,12 @@ public class PlayerMovement : MonoBehaviour
 
         // handle drag
         if (grounded)
+        {
             rb.linearDamping = groundDrag;
+            // reset air jumps when on the ground
+            if (airJumpsLeft != maxAirJumps)
+                airJumpsLeft = maxAirJumps;
+        }         
         else
             rb.linearDamping = 0;
     }
@@ -111,13 +124,16 @@ public class PlayerMovement : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
 
         // when to jump
-        if (Input.GetKey(jumpKey) && readyToJump && grounded)
+        if (Input.GetKey(jumpKey) && readyToJump)
         {
-            readyToJump = false;
+            if (grounded || sliding || airJumpsLeft > 0)
+            {
+                readyToJump = false;
 
-            Jump();
+                Jump();
 
-            Invoke(nameof(ResetJump), jumpCooldown);
+                Invoke(nameof(ResetJump), jumpCooldown);
+            }
         }
 
         // Start Crouch
@@ -290,6 +306,18 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+
+        // Handle Air Jumps (Add this block)
+        if (!grounded && !sliding)
+        {
+            airJumpsLeft--;
+        }
+
+        // Handle Slide Boost (Bunny Hop) (Add this block)
+        if (sliding)
+        {
+            rb.AddForce(moveDirection.normalized * slideBoostForce, ForceMode.Impulse);
+        }
     }
     private void ResetJump()
     {
