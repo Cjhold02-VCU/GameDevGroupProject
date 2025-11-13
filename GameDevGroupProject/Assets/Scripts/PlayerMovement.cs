@@ -233,6 +233,8 @@ public class PlayerMovement : MonoBehaviour
         // check if desiredMoveSpeed has changed drastically
         if (Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 4f && moveSpeed != 0)
         {
+            Debug.Log("desiredMoveSpeed has changed drastically. Calling SmoothlyLerpMoveSpeed()");
+
             StopAllCoroutines();
             StartCoroutine(SmoothlyLerpMoveSpeed());
         }
@@ -286,7 +288,6 @@ public class PlayerMovement : MonoBehaviour
             if (rb.linearVelocity.y > 0)
                 rb.AddForce(Vector3.down * 80f, ForceMode.Force);
         }
-
 
         // on ground
         else if (grounded)
