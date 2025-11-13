@@ -124,7 +124,7 @@ public class ProjectileLauncher : MonoBehaviour
         // Invoke resetShot function (if not already invoked)
         if (allowInvoke)
         {
-            Invoke("Reset Shot", timeBetweenShooting);
+            Invoke("ResetShot", timeBetweenShooting);
             allowInvoke = false;
         }
 
@@ -144,7 +144,7 @@ public class ProjectileLauncher : MonoBehaviour
     private void Reload()
     {
         reloading = true;
-        Invoke("ReloadFinished", reloadTime);
+        Invoke("ReloadFinish", reloadTime);
     }
 
     private void ReloadFinish()
