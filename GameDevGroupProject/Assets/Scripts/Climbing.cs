@@ -10,6 +10,7 @@ public class Climbing : MonoBehaviour
 
     [Header("Climbing")]
     public float climbSpeed;
+    public bool resetClimbTimerWhenJump;
     public float maxClimbTime;
     private float climbTimer;
 
@@ -20,8 +21,10 @@ public class Climbing : MonoBehaviour
     public float climbJumpBackForce;
 
     public KeyCode jumpKey = KeyCode.Space;
+    public bool unlimitedClimbJumps;
     public int climbJumps;
-    private int climbJumpsLeft;
+    [HideInInspector]
+    public int climbJumpsLeft;
 
     [Header("Detection")]
     public float detectionLength;
@@ -30,7 +33,8 @@ public class Climbing : MonoBehaviour
     private float wallLookAngle;
 
     private RaycastHit frontWallHit;
-    private bool wallFront;
+    [HideInInspector]
+    public bool wallFront;
 
     private Transform lastWall;
     private Vector3 lastWallNormal;
@@ -43,7 +47,8 @@ public class Climbing : MonoBehaviour
 
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
+        pm = GetComponent<PlayerMovement>();
     }
 
     void Update()
@@ -64,6 +69,14 @@ public class Climbing : MonoBehaviour
             // timer
             if (climbTimer > 0) climbTimer -= Time.deltaTime;
             if (climbTimer < 0) StopClimbing();
+
+            // To Jump while Climbing
+            if (wallFront && Input.GetKeyDown(jumpKey) && ((climbJumpsLeft > 0) || unlimitedClimbJumps))
+            {
+                ClimbJump();
+
+                Invoke(nameof(ResetAirJump), pm.airJumpCooldown);
+            }
         }
 
         // State 2 - Exiting
@@ -80,8 +93,6 @@ public class Climbing : MonoBehaviour
         {
             if (climbing) StopClimbing();
         }
-
-        if (wallFront && Input.GetKeyDown(jumpKey) && climbJumpsLeft > 0) ClimbJump();
     }
 
     private void WallCheck()
@@ -91,7 +102,7 @@ public class Climbing : MonoBehaviour
 
         bool newWall = frontWallHit.transform != lastWall || Mathf.Abs(Vector3.Angle(lastWallNormal, frontWallHit.normal)) > minWallNormalAngleChange;
 
-        if ((wallFront && newWall) || pm.grounded)
+        if ((wallFront && (newWall || resetClimbTimerWhenJump)) || pm.grounded)
         {
             climbTimer = maxClimbTime;
             climbJumpsLeft = climbJumps;
@@ -129,5 +140,10 @@ public class Climbing : MonoBehaviour
         rb.AddForce(forceToApply, ForceMode.Impulse);
 
         climbJumpsLeft--;
+    }
+
+    public void ResetAirJump()
+    {
+        pm.readyToAirJump = true;
     }
 }

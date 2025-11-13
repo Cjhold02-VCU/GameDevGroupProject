@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -16,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float speedIncreaseMultiplier;
     public float slopeIncreaseMultiplier;
-    
+
     public float groundDrag;
 
     [Header("Jumping")]
@@ -27,7 +28,11 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Air Jumps")]
     public int maxAirJumps = 1;
+    public float airJumpForceBoostPerc;
+    public float airJumpCooldown;
     private int airJumpsLeft;
+    [HideInInspector]
+    public bool readyToAirJump;
 
     [Header("Bunny Hopping")]
     public float slideBoostForce = 200f;
@@ -41,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode sprintKey = KeyCode.LeftShift;
     public KeyCode crouchKey = KeyCode.C;
+    public KeyCode airJumpKey = KeyCode.F;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -53,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
     private bool exitingSlope;
 
     [Header("References")]
+    public WallRunning wallRunningScript;
     public Climbing climbingScript;
 
     public Transform orientation;
@@ -86,7 +93,11 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
+        wallRunningScript = GetComponent<WallRunning>();
+        climbingScript = GetComponent<Climbing>();
+
         readyToJump = true;
+        readyToAirJump = false;
         airJumpsLeft = maxAirJumps;
 
         startYScale = transform.localScale.y;
@@ -103,14 +114,19 @@ public class PlayerMovement : MonoBehaviour
 
         // handle drag
         if (grounded)
-        {
             rb.linearDamping = groundDrag;
-            // reset air jumps when on the ground
-            if (airJumpsLeft != maxAirJumps)
-                airJumpsLeft = maxAirJumps;
-        }         
         else
             rb.linearDamping = 0;
+
+        // Reset air jumps when on the ground, climbing, or wallrunning
+        if (grounded || wallrunning || climbing)
+        {
+            if (airJumpsLeft != maxAirJumps)
+                airJumpsLeft = maxAirJumps;
+            
+            // Turn off readyToAirJump when on ground or wall
+            readyToAirJump = false;
+        }
     }
 
     private void FixedUpdate()
@@ -123,17 +139,26 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        // when to jump
-        if (Input.GetKey(jumpKey) && readyToJump)
+        // When to Jump:
+        // On ground
+        if (Input.GetKey(jumpKey) && readyToJump && grounded)
         {
-            if (grounded || sliding || airJumpsLeft > 0)
-            {
-                readyToJump = false;
+            readyToJump = false;
+                    
+            Jump();
 
-                Jump();
+            Invoke(nameof(ResetJump), jumpCooldown);
+            Invoke(nameof(ResetAirJump), airJumpCooldown);
+        }
 
-                Invoke(nameof(ResetJump), jumpCooldown);
-            }
+        // In Air
+        if (Input.GetKey(airJumpKey) && readyToAirJump && !grounded && (airJumpsLeft > 0) && !sliding)
+        {
+            readyToAirJump = false;
+
+            AirJump();
+
+            Invoke(nameof(ResetAirJump), airJumpCooldown);
         }
 
         // Start Crouch
@@ -158,14 +183,14 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.climbing;
             desiredMoveSpeed = climbSpeed;
         }
-        
+
         // Mode - Wallrunning
         else if (wallrunning)
         {
             state = MovementState.wallrunning;
             desiredMoveSpeed = wallrunSpeed;
         }
-        
+
         // Mode - Sliding
         else if (sliding)
         {
@@ -177,7 +202,7 @@ public class PlayerMovement : MonoBehaviour
             else
                 desiredMoveSpeed = sprintSpeed;
         }
-        
+
         // Mode - Crouching
         else if (Input.GetKey(crouchKey))
         {
@@ -240,7 +265,7 @@ public class PlayerMovement : MonoBehaviour
             else
                 time += Time.deltaTime * speedIncreaseMultiplier;
 
-                yield return null;
+            yield return null;
         }
 
         moveSpeed = desiredMoveSpeed;
@@ -261,11 +286,11 @@ public class PlayerMovement : MonoBehaviour
             if (rb.linearVelocity.y > 0)
                 rb.AddForce(Vector3.down * 80f, ForceMode.Force);
         }
-            
+
 
         // on ground
         else if (grounded)
-            rb.AddForce(moveDirection.normalized *  moveSpeed * 10f, ForceMode.Force);
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
 
         // in air
         else if (!grounded)
@@ -289,7 +314,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector3 flatVel = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
 
-            // limit velicory if needed
+            // limit velicoty if needed
             if (flatVel.magnitude > moveSpeed)
             {
                 Vector3 limitedVel = flatVel.normalized * moveSpeed;
@@ -307,23 +332,30 @@ public class PlayerMovement : MonoBehaviour
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
 
-        // Handle Air Jumps (Add this block)
-        if (!grounded && !sliding)
-        {
-            airJumpsLeft--;
-        }
-
         // Handle Slide Boost (Bunny Hop) (Add this block)
         if (sliding)
         {
             rb.AddForce(moveDirection.normalized * slideBoostForce, ForceMode.Impulse);
         }
     }
-    private void ResetJump()
+    public void ResetJump()
     {
         readyToJump = true;
 
         exitingSlope = false;
+    }
+    private void AirJump()
+    {
+        // reset y velocity
+        rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+
+        rb.AddForce(transform.up * (jumpForce + (jumpForce * airJumpForceBoostPerc)), ForceMode.Impulse);
+        
+        airJumpsLeft--;
+    }
+    public void ResetAirJump()
+    {
+        readyToAirJump = true;
     }
 
     public bool OnSlope()
@@ -347,5 +379,21 @@ public class PlayerMovement : MonoBehaviour
     {
         float speed = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z).magnitude;
         GUILayout.Label($"Speed: {speed:F1}");
+        GUILayout.Label($"State: {state}");
+        GUILayout.Label($"Grounded?: {grounded}");
+
+        GUILayout.Label($"Able to ground jump: {readyToJump && grounded}");
+        GUILayout.Label($"ReadyToJump: {readyToJump}");
+
+        GUILayout.Label($"Able to air jump: {readyToAirJump && !grounded && (airJumpsLeft > 0) && !sliding}");
+        GUILayout.Label($"ReadyToAirJump: {readyToAirJump}");
+        GUILayout.Label($"Air jumps: {airJumpsLeft}");
+
+        GUILayout.Label($"Climbing: {climbing}");
+        GUILayout.Label($"Able to Climb jump: {climbingScript.wallFront && ((climbingScript.climbJumpsLeft > 0) || climbingScript.unlimitedClimbJumps)}");
+        GUILayout.Label($"wallFront: {climbingScript.wallFront}");
+        GUILayout.Label($"Climb jumps: {climbingScript.climbJumpsLeft}");
+
+        GUILayout.Label($"Able to WallRun jump: {readyToJump && grounded}");
     }
 }

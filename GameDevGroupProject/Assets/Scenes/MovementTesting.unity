@@ -2523,17 +2523,23 @@ MonoBehaviour:
   jumpForce: 12
   jumpCooldown: 0.25
   airMultiplier: 0.4
+  maxAirJumps: 1
+  airJumpForceBoostPerc: 0
+  airJumpCooldown: 0.3
+  slideBoostForce: 200
   crouchSpeed: 3.5
   crouchYScale: 0.5
   jumpKey: 32
   sprintKey: 304
   crouchKey: 99
+  airJumpKey: 102
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
   grounded: 0
   maxSlopeAngle: 40
+  wallRunningScript: {fileID: 0}
   climbingScript: {fileID: 1785275634}
   orientation: {fileID: 1333449187}
   state: 0
@@ -2587,6 +2593,8 @@ MonoBehaviour:
   downwardsRunKey: 306
   wallCheckDistance: 0.7
   minJumpHeight: 2
+  wallLeft: 0
+  wallRight: 0
   exitWallTime: 0.2
   useGravity: 0
   gravityCounterForce: 20
@@ -2611,14 +2619,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   climbSpeed: 10
+  resetClimbTimerWhenJump: 1
   maxClimbTime: 0.75
   climbJumpUpForce: 14
   climbJumpBackForce: 12
   jumpKey: 32
+  unlimitedClimbJumps: 0
   climbJumps: 1
+  climbJumpsLeft: 0
   detectionLength: 0.7
   sphereCastRadius: 0.25
   maxWallLookAngle: 30
+  wallFront: 0
   minWallNormalAngleChange: 5
   exitingWall: 0
   exitWallTime: 0.2

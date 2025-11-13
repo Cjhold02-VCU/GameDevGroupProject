@@ -34,9 +34,13 @@ public class Sliding : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKeyDown(slideKey) && (horizontalInput != 0 || verticalInput != 0) && pm.grounded)
+        if (Input.GetKeyDown(slideKey) && (horizontalInput != 0 || verticalInput != 0))
             StartSlide();
 
+        if (Input.GetKeyUp(slideKey) && pm.sliding)
+            StopSlide();
+
+        // Stop sliding if jump key is pressed (Add this block)
         if (Input.GetKeyDown(pm.jumpKey) && pm.sliding)
             StopSlide();
     }

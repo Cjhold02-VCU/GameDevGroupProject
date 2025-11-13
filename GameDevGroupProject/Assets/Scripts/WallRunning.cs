@@ -28,8 +28,8 @@ public class WallRunning : MonoBehaviour
     public float minJumpHeight;
     private RaycastHit leftWallhit;
     private RaycastHit rightWallhit;
-    private bool wallLeft;
-    private bool wallRight;
+    public bool wallLeft;
+    public bool wallRight;
 
     [Header("Exiting")]
     private bool exitingWall;
@@ -101,8 +101,12 @@ public class WallRunning : MonoBehaviour
             }
             
             // wall jump
-            if (Input.GetKeyDown(jumpKey)) 
+            if (Input.GetKeyDown(jumpKey))
+            {
                 WallJump();
+
+                Invoke(nameof(ResetAirJump), pm.airJumpCooldown);
+            }
         }
 
         // State 2 - Exiting
@@ -191,5 +195,10 @@ public class WallRunning : MonoBehaviour
         // reset y velocity and add force 
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
         rb.AddForce(forceToApply, ForceMode.Impulse);
+    }
+
+    public void ResetAirJump()
+    {
+        pm.readyToAirJump = true;
     }
 }
