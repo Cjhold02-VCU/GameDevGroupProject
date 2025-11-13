@@ -2526,6 +2526,7 @@ MonoBehaviour:
   maxAirJumps: 1
   airJumpForceBoostPerc: 0
   airJumpCooldown: 0.3
+  readyToAirJump: 0
   slideBoostForce: 200
   crouchSpeed: 3.5
   crouchYScale: 0.5
