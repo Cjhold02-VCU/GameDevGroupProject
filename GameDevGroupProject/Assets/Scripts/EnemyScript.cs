@@ -1,4 +1,5 @@
-using Unity.VisualScripting;
+
+
 using UnityEngine;
 using UnityEngine.AI;
 public class EnemyScript : MonoBehaviour
@@ -7,6 +8,7 @@ public class EnemyScript : MonoBehaviour
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
     public float health;
+    public GameObject projectile;
 
     // Patroling
     public Vector3 walkPoint;
@@ -57,10 +59,10 @@ public class EnemyScript : MonoBehaviour
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
 
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z )
+        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
 
 
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
+        if (Physics.Raycast(walkPoint, Vector3.down, 2f, whatIsGround))
             walkPointSet = true;   
     }   
 
