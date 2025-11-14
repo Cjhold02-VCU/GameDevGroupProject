@@ -11,6 +11,7 @@ public class Sliding : MonoBehaviour
     [Header("Sliding")]
     public float maxSlideTime;
     public float slideForce;
+    public float boostedSlideTurnSpeed = 200f;
     private float slideTimer;
 
     public float slideYScale;
@@ -78,6 +79,23 @@ public class Sliding : MonoBehaviour
                 rb.linearDamping = 0;
 
                 slideTimer -= Time.deltaTime;
+
+                // The direction the player is looking is our new target direction.
+                Vector3 lookDirection = orientation.forward;
+                Vector3 currentFlatVel = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+
+                // We only need to turn if the player is actually moving.
+                if (currentFlatVel.magnitude > 0.1f)
+                {
+                    // The target velocity should point where we are looking, but maintain our current speed.
+                    Vector3 targetVel = lookDirection * currentFlatVel.magnitude;
+
+                    // Rotate the current velocity towards the target velocity at a controlled speed.
+                    Vector3 newVel = Vector3.RotateTowards(currentFlatVel, targetVel, Time.fixedDeltaTime * boostedSlideTurnSpeed * Mathf.Deg2Rad, 0f);
+
+                    // Apply the new velocity, preserving the original vertical speed.
+                    rb.linearVelocity = new Vector3(newVel.x, rb.linearVelocity.y, newVel.z);
+                }
             }
 
             // Do not apply any slideForce.
