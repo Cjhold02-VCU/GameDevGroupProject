@@ -20,6 +20,10 @@ public class PlayerMovement : MonoBehaviour
 
     public float groundDrag;
 
+    [Header("Physics Materials")]
+    public PhysicsMaterial regularFrictionMaterial;
+    public PhysicsMaterial frictionlessMaterial;
+
     [Header("Jumping")]
     public float jumpForce;
     public float jumpCooldown;
@@ -35,7 +39,11 @@ public class PlayerMovement : MonoBehaviour
     public bool readyToAirJump;
 
     [Header("Bunny Hopping")]
-    public float slideBoostForce = 200f;
+    public float slideBoostForce;
+    public float maxSlideJumpSpeed = 30f;
+    public float boostedAirDrag = 1f;
+    [HideInInspector]
+    public bool isBoosted;
 
     [Header("Crouching")]
     public float crouchSpeed;
@@ -59,8 +67,10 @@ public class PlayerMovement : MonoBehaviour
     private bool exitingSlope;
 
     [Header("References")]
+    public Sliding slidingScript;
     public WallRunning wallRunningScript;
     public Climbing climbingScript;
+    public CapsuleCollider c_collider;
 
     public Transform orientation;
 
@@ -70,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 moveDirection;
 
     Rigidbody rb;
+    
 
     public MovementState state;
     public enum MovementState
@@ -93,6 +104,10 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
+        // Assign the regular material at start
+        c_collider.material = regularFrictionMaterial;
+
+        slidingScript = GetComponent<Sliding>();
         wallRunningScript = GetComponent<WallRunning>();
         climbingScript = GetComponent<Climbing>();
 
@@ -113,10 +128,26 @@ public class PlayerMovement : MonoBehaviour
         StateHandler();
 
         // handle drag
-        if (grounded)
+        if (sliding)
+        {
+            // Drag is handled entirely by Sliding.cs
+            // Do nothing here.
+        }
+        else if (grounded) // on the ground
+        {
             rb.linearDamping = groundDrag;
-        else
-            rb.linearDamping = 0;
+        }
+        else // in air
+        {
+            if (isBoosted) // If Boosted and in air, use boosted air drag.
+            {
+                rb.linearDamping = boostedAirDrag;
+            }
+            else // Otherwise, no drag in the air   
+            {
+                rb.linearDamping = 0;
+            }
+        }
 
         // Reset air jumps when on the ground, climbing, or wallrunning
         if (grounded || wallrunning || climbing)
@@ -139,20 +170,34 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        // When to Jump:
-        // On ground
-        if (Input.GetKey(jumpKey) && readyToJump && grounded)
+        // When to Ground Jump:
+        // On ground AND NOT sliding
+        if (Input.GetKey(jumpKey) && readyToJump && grounded && !sliding)
         {
             readyToJump = false;
-                    
+
             Jump();
 
             Invoke(nameof(ResetJump), jumpCooldown);
             Invoke(nameof(ResetAirJump), airJumpCooldown);
         }
 
-        // In Air
-        if (Input.GetKey(airJumpKey) && readyToAirJump && !grounded && (airJumpsLeft > 0) && !sliding)
+        // When to Slide Jump (Bunny Hop):
+        // On ground AND sliding
+        else if (Input.GetKey(jumpKey) && readyToJump && grounded && sliding)
+        {
+            readyToJump = false;
+
+            // Call a new, dedicated function for clarity
+            SlideJump();
+
+            Invoke(nameof(ResetJump), jumpCooldown);
+            Invoke(nameof(ResetAirJump), airJumpCooldown);
+        }
+
+        // When to Air Jump:
+        // In Air AND NOT sliding
+        else if (Input.GetKey(airJumpKey) && readyToAirJump && !grounded && (airJumpsLeft > 0) && !sliding)
         {
             readyToAirJump = false;
 
@@ -196,11 +241,21 @@ public class PlayerMovement : MonoBehaviour
         {
             state = MovementState.sliding;
 
-            if (OnSlope() && rb.linearVelocity.y < 0.1f)
-                desiredMoveSpeed = slideSpeed;
-
+            // If we are slide-jump boosted, our desired speed is our CURRENT speed.
+            if (isBoosted)
+            {
+                // Set desiredMoveSpeed to a high value to prevent SpeedControl from interfering.
+                // We use the absolute cap to ensure consistency.
+                desiredMoveSpeed = maxSlideJumpSpeed;
+            }
             else
-                desiredMoveSpeed = sprintSpeed;
+            {
+                // Original logic for normal (non-boosted) sliding
+                if (OnSlope() && rb.linearVelocity.y < 0.1f)
+                    desiredMoveSpeed = slideSpeed;
+                else
+                    desiredMoveSpeed = sprintSpeed;
+            }
         }
 
         // Mode - Crouching
@@ -280,6 +335,9 @@ public class PlayerMovement : MonoBehaviour
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
+        // If we are sliding while boosted, don't apply regular movement forces.
+        if (isBoosted && sliding) return;
+
         // on slope
         if (OnSlope() && !exitingSlope)
         {
@@ -303,6 +361,31 @@ public class PlayerMovement : MonoBehaviour
 
     private void SpeedControl()
     {
+        // If we are boosted, we have a special set of rules
+        if (isBoosted)
+        {
+            Vector3 flatVel = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+
+            // Enforce the absolute speed cap for the entire slide-jump chain
+            if (flatVel.magnitude > maxSlideJumpSpeed)
+            {
+                Vector3 limitedVel = flatVel.normalized * maxSlideJumpSpeed;
+                rb.linearVelocity = new Vector3(limitedVel.x, rb.linearVelocity.y, limitedVel.z);
+            }
+
+            // We only turn off the boost if our speed drops below the 'normal' speed for our current state.
+            // This prevents the boost from being cancelled instantly when jumping from a slide.
+            if (flatVel.magnitude < 1.0f)
+            {
+                isBoosted = false;
+            }
+
+            // If we are still boosted after that check, we skip ALL other speed limiting.
+            // This allows the bunny hop to maintain momentum.
+            if (isBoosted)
+                return;
+        }
+
         // limiting speed on slope
         if (OnSlope() && !exitingSlope)
         {
@@ -332,18 +415,24 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-
-        // Handle Slide Boost (Bunny Hop) (Add this block)
-        if (sliding)
-        {
-            rb.AddForce(moveDirection.normalized * slideBoostForce, ForceMode.Impulse);
-        }
     }
-    public void ResetJump()
+    private void SlideJump()
     {
-        readyToJump = true;
+        exitingSlope = true;
 
-        exitingSlope = false;
+        // reset y velocity
+        rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+
+        // Apply normal jump force
+        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+
+        // --- Apply the Boost Logic ---
+        Debug.Log("Slide Jump!");
+        isBoosted = true;
+
+        rb.AddForce(moveDirection.normalized * slideBoostForce, ForceMode.Impulse);
+
+        slidingScript.StopSlide();
     }
     private void AirJump()
     {
@@ -353,6 +442,12 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(transform.up * (jumpForce + (jumpForce * airJumpForceBoostPerc)), ForceMode.Impulse);
         
         airJumpsLeft--;
+    }
+    public void ResetJump()
+    {
+        readyToJump = true;
+
+        exitingSlope = false;
     }
     public void ResetAirJump()
     {
@@ -374,27 +469,12 @@ public class PlayerMovement : MonoBehaviour
         return Vector3.ProjectOnPlane(direction, slopeHit.normal).normalized;
     }
 
-
-
-    void OnGUI()
+    public void StartBoostedSlide()
     {
-        float speed = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z).magnitude;
-        GUILayout.Label($"Speed: {speed:F1}");
-        GUILayout.Label($"State: {state}");
-        GUILayout.Label($"Grounded?: {grounded}");
-
-        GUILayout.Label($"Able to ground jump: {readyToJump && grounded}");
-        GUILayout.Label($"ReadyToJump: {readyToJump}");
-
-        GUILayout.Label($"Able to air jump: {readyToAirJump && !grounded && (airJumpsLeft > 0) && !sliding}");
-        GUILayout.Label($"ReadyToAirJump: {readyToAirJump}");
-        GUILayout.Label($"Air jumps: {airJumpsLeft}");
-
-        GUILayout.Label($"Climbing: {climbing}");
-        GUILayout.Label($"Able to Climb jump: {climbingScript.wallFront && ((climbingScript.climbJumpsLeft > 0) || climbingScript.unlimitedClimbJumps)}");
-        GUILayout.Label($"wallFront: {climbingScript.wallFront}");
-        GUILayout.Label($"Climb jumps: {climbingScript.climbJumpsLeft}");
-
-        GUILayout.Label($"Able to WallRun jump: {readyToJump && grounded}");
+        c_collider.material = frictionlessMaterial;
+    }
+    public void StopBoostedSlide()
+    {
+        c_collider.material = regularFrictionMaterial;
     }
 }

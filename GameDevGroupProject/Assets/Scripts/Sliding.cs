@@ -39,10 +39,6 @@ public class Sliding : MonoBehaviour
 
         if (Input.GetKeyUp(slideKey) && pm.sliding)
             StopSlide();
-
-        // Stop sliding if jump key is pressed (Add this block)
-        if (Input.GetKeyDown(pm.jumpKey) && pm.sliding)
-            StopSlide();
     }
 
     private void FixedUpdate()
@@ -55,6 +51,12 @@ public class Sliding : MonoBehaviour
     {
         pm.sliding = true;
 
+        // Check if we are starting a slide while already boosted (i.e., landing from a slide jump)
+        if (pm.isBoosted)
+        {
+            pm.StartBoostedSlide();
+        }
+
         playerObj.localScale = new Vector3(playerObj.localScale.x, slideYScale, playerObj.localScale.z);
         rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
 
@@ -63,29 +65,58 @@ public class Sliding : MonoBehaviour
 
     private void SlidingMovement()
     {
-        Vector3 inputDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-
-        // sliding normal
-        if (!pm.OnSlope() || rb.linearVelocity.y > -.1f)
+        if (pm.isBoosted) // Handle Drag when boosted sliding
         {
-            rb.AddForce(inputDirection.normalized * slideForce, ForceMode.Force);
+            // If on a slope, apply boostedAirDrag to create a natural terminal velocity.
+            if (pm.OnSlope())
+            {
+                rb.linearDamping = pm.boostedAirDrag;
+            }
+            // If on flat ground, use zero drag to perfectly conserve momentum.
+            else
+            {
+                rb.linearDamping = 0;
 
-            slideTimer -= Time.deltaTime;
+                slideTimer -= Time.deltaTime;
+            }
+
+            // Do not apply any slideForce.
         }
-
-        // sliding down a slope
-        else
+        else // Normal Case (Not Slide Jumping / Boosted)
         {
-            rb.AddForce(pm.GetSlopeMoveDirection(inputDirection) * slideForce, ForceMode.Force);
-        }
+            // For normal slides, always use the default ground drag.
+            rb.linearDamping = pm.groundDrag;
 
+            Vector3 inputDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+
+            // sliding normal
+            if (!pm.OnSlope() || rb.linearVelocity.y > -.1f)
+            {
+                rb.AddForce(inputDirection.normalized * slideForce, ForceMode.Force);
+
+                slideTimer -= Time.deltaTime;
+            }
+
+            // sliding down a slope
+            else
+            {
+                rb.AddForce(pm.GetSlopeMoveDirection(inputDirection) * slideForce, ForceMode.Force);
+            }
+        }
+            
         if (slideTimer <= 0)
             StopSlide();
     }
 
-    private void StopSlide()
+    public void StopSlide()
     {
         pm.sliding = false;
+
+        // Always revert to regular friction when a slide ends.
+        pm.StopBoostedSlide();
+
+        // Reset drag to 0 when sliding stops, letting PlayerMovement's logic take over.
+        rb.linearDamping = 0;
 
         playerObj.localScale = new Vector3(playerObj.localScale.x, startYScale, playerObj.localScale.z);
     }

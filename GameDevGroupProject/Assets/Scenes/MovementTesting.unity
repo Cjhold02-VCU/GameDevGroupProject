@@ -2519,7 +2519,9 @@ MonoBehaviour:
   climbSpeed: 3
   speedIncreaseMultiplier: 1.5
   slopeIncreaseMultiplier: 2.5
-  groundDrag: 4
+  groundDrag: 5
+  regularFrictionMaterial: {fileID: 13400000, guid: d5afeed53c0895b42b690b317f0960c2, type: 2}
+  frictionlessMaterial: {fileID: 13400000, guid: 38fbce01b0e14fe4b896f1b655597fb3, type: 2}
   jumpForce: 12
   jumpCooldown: 0.25
   airMultiplier: 0.4
@@ -2527,7 +2529,10 @@ MonoBehaviour:
   airJumpForceBoostPerc: 0
   airJumpCooldown: 0.3
   readyToAirJump: 0
-  slideBoostForce: 200
+  slideBoostForce: 0
+  maxSlideJumpSpeed: 40
+  boostedAirDrag: 1
+  isBoosted: 0
   crouchSpeed: 3.5
   crouchYScale: 0.5
   jumpKey: 32
@@ -2540,8 +2545,10 @@ MonoBehaviour:
     m_Bits: 1024
   grounded: 0
   maxSlopeAngle: 40
-  wallRunningScript: {fileID: 0}
+  slidingScript: {fileID: 1785275632}
+  wallRunningScript: {fileID: 1785275633}
   climbingScript: {fileID: 1785275634}
+  c_collider: {fileID: 1937325606}
   orientation: {fileID: 1333449187}
   state: 0
   sliding: 0
