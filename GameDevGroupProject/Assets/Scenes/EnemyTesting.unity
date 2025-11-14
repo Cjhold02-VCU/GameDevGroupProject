@@ -363,7 +363,7 @@ MonoBehaviour:
   allowButtonHold: 1
   fpsCam: {fileID: 1552253750}
   attackPoint: {fileID: 852296268}
-  muzzleFlash: {fileID: 0}
+  muzzleFlash: {fileID: 8078720523478869859, guid: 4f5fc4bbd01b03a4499a6ed77f175fc7, type: 3}
   ammunitionDisplay: {fileID: 0}
   allowInvoke: 1
 --- !u!1 &205564375
@@ -1514,6 +1514,7 @@ GameObject:
   - component: {fileID: 832212503}
   - component: {fileID: 832212505}
   - component: {fileID: 832212506}
+  - component: {fileID: 832212507}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -1603,7 +1604,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1611,6 +1612,33 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &832212507
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832212501}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
 --- !u!1 &852296267
 GameObject:
   m_ObjectHideFlags: 0
@@ -1636,7 +1664,7 @@ Transform:
   m_GameObject: {fileID: 852296267}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.673, y: 0, z: 0.09}
+  m_LocalPosition: {x: 0.932, y: 0, z: 0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2537,8 +2565,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1539296507}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.17, y: 1, z: 26.38}
+  m_LocalRotation: {x: -0, y: -0.99969816, z: -0, w: -0.024568237}
+  m_LocalPosition: {x: -23.17, y: 1, z: 10.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2546,7 +2574,7 @@ Transform:
   - {fileID: 2038520328}
   - {fileID: 513772385}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -182.816, z: 0}
 --- !u!114 &1539296509
 MonoBehaviour:
   m_ObjectHideFlags: 0
