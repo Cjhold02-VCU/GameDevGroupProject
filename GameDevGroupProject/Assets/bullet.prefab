@@ -151,4 +151,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionVFXPrefab: {fileID: 3077343761403282166, guid: f78aaaec3b393e24ca74cd6de8194347, type: 3}
   damage: 10
-  lifetime: 5
+  lifetime: 20

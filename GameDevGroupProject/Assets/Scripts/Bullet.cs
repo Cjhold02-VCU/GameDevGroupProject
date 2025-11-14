@@ -4,7 +4,7 @@ public class Bullet : MonoBehaviour
 {
     public GameObject explosionVFXPrefab;
     public int damage = 10;
-    public float lifetime = 5f;
+    public float lifetime = 20f;
 
     void Start()
     {
