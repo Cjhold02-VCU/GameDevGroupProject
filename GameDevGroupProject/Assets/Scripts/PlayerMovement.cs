@@ -125,7 +125,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Update()
-    {
+    {   
+
         // Set ammo display, if it exists
         if (playerHealth != null)
             playerHealth.SetText(Health.ToString());
@@ -486,5 +487,12 @@ public class PlayerMovement : MonoBehaviour
     public void StopBoostedSlide()
     {
         c_collider.material = regularFrictionMaterial;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        Health -= damage;
+        Debug.Log($"TakeDamage called: -{damage}, Health now {Health}");
+
     }
 }

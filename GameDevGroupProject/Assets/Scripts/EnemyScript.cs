@@ -17,11 +17,19 @@ public class EnemyScript : MonoBehaviour
 
     // Attacking
     public float timeBetweenAttacks;
+    private float fireCooldown = 0f;
     bool alreadyAttacked;
 
     //States
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
+
+    public int damage = 10;
+    public float shootRange = 50f;
+    [Tooltip("Cone half-angle in degrees")]
+    public float spreadAngleDegrees = 5f;
+    public Transform shootOrigin; // optional: assign a child transform on the enemy for muzzle position
+
 
     private void Awake()
     {
@@ -75,19 +83,64 @@ public class EnemyScript : MonoBehaviour
     {
         // Make sure enemy doesnt move
         agent.SetDestination(transform.position);
-
+        // Face the player
         transform.LookAt(player);
+        // Count down cooldown
+        if (fireCooldown > 0f) fireCooldown -= Time.deltaTime;
 
-        if (!alreadyAttacked)
+
+        if (fireCooldown <= 0f)
         {
-            // Attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            ShootAtPlayer();
+            fireCooldown = timeBetweenAttacks;
+        }
 
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
 
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+    }
+
+    private Vector3 GetDirectionWithSpread(Vector3 forward, float halfAngleDeg)
+    {
+        // Convert cone half-angle to radians
+        float halfAngleRad = halfAngleDeg * Mathf.Deg2Rad;
+
+        // Sample a random point inside a cone by sampling a random direction on a unit sphere
+        // then spherically interpolate toward the forward direction to constrain it inside the cone.
+        float u = Random.value; // 0..1
+        float v = Random.value; // 0..1
+
+        // Uniform sample of direction within cone:
+        float cosTheta = Mathf.Lerp(1f, Mathf.Cos(halfAngleRad), u);
+        float sinTheta = Mathf.Sqrt(1f - cosTheta * cosTheta);
+        float phi = 2f * Mathf.PI * v;
+
+        // Direction in local cone coordinates
+        Vector3 localDir = new Vector3(sinTheta * Mathf.Cos(phi), sinTheta * Mathf.Sin(phi), cosTheta);
+
+        // Build rotation that maps Vector3.forward to the desired forward vector
+        Quaternion rot = Quaternion.FromToRotation(Vector3.forward, forward.normalized);
+        return rot * localDir;
+    }
+    private void ShootAtPlayer()
+    {
+        Vector3 origin = (shootOrigin != null) ? shootOrigin.position : transform.position;
+        Vector3 dirToPlayer = (player.position - origin).normalized;
+        Vector3 shotDir = GetDirectionWithSpread(dirToPlayer, spreadAngleDegrees);
+
+        // Exclude the enemy itself by using a layer mask, or check hit.collider != this.collider
+        if (Physics.Raycast(origin, shotDir, out RaycastHit hit, shootRange))
+        {
+            Debug.DrawLine(origin, hit.point, Color.red, 0.5f);
+            Debug.Log("Enemy shot hit: " + hit.collider.name + " (tag: " + hit.collider.tag + ")");
+
+            // Try to call TakeDamage on the player's movement script (search parents if needed)
+            var playerMovement = hit.collider.GetComponent<PlayerMovement>() ??
+                                 hit.collider.GetComponentInParent<PlayerMovement>() ??
+                                 hit.collider.GetComponentInChildren<PlayerMovement>();
+
+            if (playerMovement != null)
+            {
+                playerMovement.TakeDamage(damage);
+            }
         }
     }
 

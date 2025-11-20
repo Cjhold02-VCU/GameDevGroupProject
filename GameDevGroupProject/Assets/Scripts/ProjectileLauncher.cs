@@ -22,7 +22,7 @@ public class ProjectileLauncher : MonoBehaviour
 
     int bulletsLeft, bulletsShot;
 
-    // bools
+    // boolsf
     bool shooting, readyToShoot, reloading;
 
     // References
