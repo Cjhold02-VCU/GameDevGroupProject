@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 
@@ -72,6 +73,11 @@ public class PlayerMovement : MonoBehaviour
     public Climbing climbingScript;
     public CapsuleCollider c_collider;
 
+    [Header("Health")]
+    public float Health = 100;
+    public TextMeshProUGUI playerHealth;
+
+
     public Transform orientation;
 
     float horizontalInput;
@@ -120,6 +126,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        // Set ammo display, if it exists
+        if (playerHealth != null)
+            playerHealth.SetText(Health.ToString());
+
         // ground Check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * .5f + .2f, whatIsGround);
 

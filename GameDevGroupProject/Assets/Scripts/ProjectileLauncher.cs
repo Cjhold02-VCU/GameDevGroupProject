@@ -6,12 +6,14 @@ using UnityEngine.UIElements;
 
 public class ProjectileLauncher : MonoBehaviour
 {
-
-    // Bullet object
-    public GameObject bullet;
-
-    // Bullet force
-    public float shootForce, upwardForce;
+    // Hitscan Settings
+    // Hitscan settings
+    public float range = 75f;
+    public float damage = 25f;
+    public LayerMask hitMask = ~0; // default: all layers
+    public GameObject impactEffectPrefab; // optional VFX prefab for impact
+    public float impactForce = 0.1f; // force applied to rigidbodies on hit
+    public float hitSphereCastRadius = 0f; // 0 = single ray; >0 = use SphereCast
 
     // Gun stats
     public float timeBetweenShooting, spread, reloadTime, timeBetweenShots;
@@ -86,14 +88,14 @@ public class ProjectileLauncher : MonoBehaviour
 
         // Check if ray hits target
         Vector3 targetPoint;
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, range, hitMask))
             targetPoint = hit.point;
         else
-            targetPoint = ray.GetPoint(75);
+            targetPoint = ray.GetPoint(range);
 
         // Calculate direction from attackpoint to targetPoint
         // Formula for a vector from point A to point B is always A - B
-        Vector3 directionWithoutSpread = targetPoint - attackPoint.position;
+        Vector3 directionWithoutSpread = (targetPoint - attackPoint.position).normalized;
 
         // calculate spread
         float x = Random.Range(-spread, spread);
@@ -103,16 +105,46 @@ public class ProjectileLauncher : MonoBehaviour
         // Just add spread as x and y component to direction vector
         Vector3 directionWithSpread = directionWithoutSpread + new Vector3(x, y, 0);
 
-        // Instantiate bullet/projectile
-        GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
-        // Rotate bullet to point towards the direction its shooting
-        currentBullet.transform.forward = directionWithSpread.normalized;
+        // Perform raycast (or spherecast if configured)
+        bool didHit = false;
+        RaycastHit finalHit;
 
-        // Add forces to the bullet
-        // GameObject must have RigidBody component, use .AddForce()
-        currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
-        // Code for upward force on projectile
-        // currentBullet.GetComponent<Rigidbody>().AddForce(fpsCam.transform.up * upwardForce, ForceMode.Impulse);
+        if (hitSphereCastRadius > 0f)
+        {
+            if (Physics.SphereCast(attackPoint.position, hitSphereCastRadius, directionWithSpread, out finalHit, range, hitMask))
+                didHit = true;
+        }
+        else
+        {
+            if (Physics.Raycast(attackPoint.position, directionWithSpread, out finalHit, range, hitMask))
+                didHit = true;
+        }
+
+        // Spawn muzzle flash if assigned
+        if (muzzleFlash != null)
+            Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
+
+        // Handle hit
+        if (didHit)
+        {
+            // Apply physics impact force if rigidbody present
+            if (finalHit.rigidbody != null)
+            {
+                finalHit.rigidbody.AddForce(-finalHit.normal * impactForce, ForceMode.Impulse);
+            }
+            else
+            {
+                var rb = finalHit.collider.attachedRigidbody;
+                if (rb != null)
+                    rb.AddForce(-finalHit.normal * impactForce, ForceMode.Impulse);
+            }
+
+            // Spawn impact effect
+            if (impactEffectPrefab != null)
+            {
+                Instantiate(impactEffectPrefab, finalHit.point, Quaternion.LookRotation(finalHit.normal));
+            }
+        }
 
         // Instantiate Muzzle Flash, if there is one
         if (muzzleFlash != null)
