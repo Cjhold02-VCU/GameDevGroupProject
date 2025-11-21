@@ -1,6 +1,7 @@
 # GameDevGroupProject
 Repository for our Group Project in "Intro to Game Development".
 - Game Draft Video: https://drive.google.com/file/d/1MiZNiw0kC9AY6MLVm5HJ9fM4St8UDBUN/view?usp=sharing 
+- Game Draft WebGL Link: https://play.unity.com/en/games/72d67ae6-f9c3-4d76-b1d7-1da2e4168dc3/webgl-builds 
 
 ## Project Structure
 - This README.md is within the root of the repository. 
