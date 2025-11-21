@@ -1,5 +1,6 @@
 # GameDevGroupProject
 Repository for our Group Project in "Intro to Game Development".
+- Game Draft Video: https://drive.google.com/file/d/1MiZNiw0kC9AY6MLVm5HJ9fM4St8UDBUN/view?usp=sharing 
 
 ## Project Structure
 - This README.md is within the root of the repository. 
