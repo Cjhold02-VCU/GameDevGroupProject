@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
-public class EnemyScript : MonoBehaviour
+public class EnemyScript : MonoBehaviour, IDamageable
 {
     public NavMeshAgent agent;
     public Transform player;
@@ -22,7 +22,7 @@ public class EnemyScript : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
-    public int damage = 10;
+    public float damage = 10;
     public float shootRange = 50f;
     [Tooltip("Cone half-angle in degrees")]
     public float spreadAngleDegrees = 5f;
@@ -145,11 +145,16 @@ public class EnemyScript : MonoBehaviour
         alreadyAttacked = false;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
 
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+        if (health <= 0)
+        {
+            Debug.Log("This enemy has died!");
+            Invoke(nameof(DestroyEnemy), 0.5f);
+        } 
+            
     }
 
     private void DestroyEnemy()

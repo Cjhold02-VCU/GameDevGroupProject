@@ -15,7 +15,12 @@ MonoBehaviour:
   timeBeforeWave: 2
   batches:
   - enemyPrefab: {fileID: 7560346405049678367, guid: c1a6a2978f069144ea9f83dccb2ce249, type: 3}
-    count: 1
+    count: 3
     initialDelay: 2
-    spawnInterval: 0
+    spawnInterval: 1
     spawnPointID: 1A
+  - enemyPrefab: {fileID: 7560346405049678367, guid: c1a6a2978f069144ea9f83dccb2ce249, type: 3}
+    count: 3
+    initialDelay: 2
+    spawnInterval: 1
+    spawnPointID: 2A

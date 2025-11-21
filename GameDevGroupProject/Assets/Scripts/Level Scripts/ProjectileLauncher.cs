@@ -127,6 +127,15 @@ public class ProjectileLauncher : MonoBehaviour
         // Handle hit
         if (didHit)
         {
+            // Try to get the Interface from the object we hit
+            IDamageable damageableTarget = finalHit.collider.GetComponent<IDamageable>();
+
+            // If it exists, damage it!
+            if (damageableTarget != null)
+            {
+                damageableTarget.TakeDamage(damage);
+            }
+
             // Apply physics impact force if rigidbody present
             if (finalHit.rigidbody != null)
             {

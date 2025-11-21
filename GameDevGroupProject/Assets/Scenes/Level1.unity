@@ -291,9 +291,17 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3373483966879920135, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
+      propertyPath: spread
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3373483966879920135, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
       propertyPath: ammunitionDisplay
       value: 
       objectReference: {fileID: 881878435}
+    - target: {fileID: 3373483966879920135, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
+      propertyPath: impactEffectPrefab
+      value: 
+      objectReference: {fileID: 8464950693656172981, guid: 83ad694f134ab954580473212156b35a, type: 3}
     - target: {fileID: 4733270524343002095, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
