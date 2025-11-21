@@ -8,17 +8,50 @@ public class GameManager : MonoBehaviour
     [Header("Game State")]
     public bool isGameOver = false;
 
+    [Header("UI References")]
+    public GameObject levelCompleteUI; // Assign your "You Win" Panel here
+    public GameObject gameOverUI;
+
     private void Awake()
     {
-        // Singleton Pattern Setup
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Keeps this object alive between scenes
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    public void ShowLevelCompleteUI()
+    {
+        // 1. Unlock Cursor
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        // 2. Pause Game (Optional, prevents player moving while in menu)
+        Time.timeScale = 0f;
+
+        // 3. Show UI
+        if (levelCompleteUI != null) levelCompleteUI.SetActive(true);
+    }
+
+    public void LoadNextLevel()
+    {
+        Time.timeScale = 1f; // Unpause
+
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        else
+        {
+            Debug.Log("No more levels! Loading Main Menu.");
+            SceneManager.LoadScene(0); // Assuming 0 is Main Menu
         }
     }
 
