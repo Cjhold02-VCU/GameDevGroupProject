@@ -13,4 +13,9 @@ MonoBehaviour:
   m_Name: Level 1 Wave 1
   m_EditorClassIdentifier: 
   timeBeforeWave: 2
-  batches: []
+  batches:
+  - enemyPrefab: {fileID: 7560346405049678367, guid: c1a6a2978f069144ea9f83dccb2ce249, type: 3}
+    count: 1
+    initialDelay: 2
+    spawnInterval: 0
+    spawnPointID: 1A
