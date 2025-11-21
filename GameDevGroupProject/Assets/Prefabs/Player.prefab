@@ -701,9 +701,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1479935418586467032}
     - target: {fileID: 5039819986126367342, guid: 5a9e195a919d6804fb5c7dbe931ba199, type: 3}
+      propertyPath: spread
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5039819986126367342, guid: 5a9e195a919d6804fb5c7dbe931ba199, type: 3}
       propertyPath: ammunitionDisplay
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5039819986126367342, guid: 5a9e195a919d6804fb5c7dbe931ba199, type: 3}
+      propertyPath: impactEffectPrefab
+      value: 
+      objectReference: {fileID: 8464950693656172981, guid: 83ad694f134ab954580473212156b35a, type: 3}
     - target: {fileID: 6392308822099663746, guid: 5a9e195a919d6804fb5c7dbe931ba199, type: 3}
       propertyPath: m_Name
       value: weapon
