@@ -1,5 +1,3 @@
-
-
 using UnityEngine;
 using UnityEngine.AI;
 public class EnemyScript : MonoBehaviour
@@ -132,14 +130,12 @@ public class EnemyScript : MonoBehaviour
             Debug.DrawLine(origin, hit.point, Color.red, 0.5f);
             Debug.Log("Enemy shot hit: " + hit.collider.name + " (tag: " + hit.collider.tag + ")");
 
-            // Try to call TakeDamage on the player's movement script (search parents if needed)
-            var playerMovement = hit.collider.GetComponent<PlayerMovement>() ??
-                                 hit.collider.GetComponentInParent<PlayerMovement>() ??
-                                 hit.collider.GetComponentInChildren<PlayerMovement>();
+            IDamageable target = hit.collider.GetComponent<IDamageable>();
 
-            if (playerMovement != null)
+            if (target != null)
             {
-                //playerMovement.TakeDamage(damage);
+                target.TakeDamage(damage);
+                Debug.Log("Hit a damageable target: " + hit.collider.name);
             }
         }
     }
