@@ -1,17 +1,18 @@
 using System.Collections;
-using TMPro;
 using UnityEditor;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
-    private float moveSpeed;
+    [HideInInspector]
+    public float moveSpeed;
     private float desiredMoveSpeed;
     private float lastDesiredMoveSpeed;
 
     public float walkSpeed;
     public float sprintSpeed;
+    public float dashSpeed;
     public float slideSpeed;
     public float wallrunSpeed;
     public float climbSpeed;
@@ -73,11 +74,6 @@ public class PlayerMovement : MonoBehaviour
     public Climbing climbingScript;
     public CapsuleCollider c_collider;
 
-    [Header("Health")]
-    public float Health = 100;
-    public TextMeshProUGUI playerHealth;
-
-
     public Transform orientation;
 
     float horizontalInput;
@@ -97,10 +93,12 @@ public class PlayerMovement : MonoBehaviour
         climbing,
         crouching,
         sliding,
+        dashing,
         air
     }
 
     public bool sliding;
+    public bool dashing;
     public bool crouching;
     public bool wallrunning;
     public bool climbing;
@@ -125,12 +123,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Update()
-    {   
-
-        // Set ammo display, if it exists
-        if (playerHealth != null)
-            playerHealth.SetText(Health.ToString());
-
+    {
         // ground Check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * .5f + .2f, whatIsGround);
 
@@ -139,7 +132,11 @@ public class PlayerMovement : MonoBehaviour
         StateHandler();
 
         // handle drag
-        if (sliding)
+        if (dashing) // No drag while dashing
+        {
+            rb.linearDamping = 0;
+        }
+        else if (sliding) 
         {
             // Drag is handled entirely by Sliding.cs
             // Do nothing here.
@@ -233,8 +230,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void StateHandler()
     {
+        // Mode - Dashing
+        if (dashing)
+        {
+            state = MovementState.dashing;
+            desiredMoveSpeed = dashSpeed;
+        }
+        
         // Mode - Climbing
-        if (climbing)
+        else if (climbing)
         {
             state = MovementState.climbing;
             desiredMoveSpeed = climbSpeed;
@@ -487,12 +491,5 @@ public class PlayerMovement : MonoBehaviour
     public void StopBoostedSlide()
     {
         c_collider.material = regularFrictionMaterial;
-    }
-
-    public void TakeDamage(int damage)
-    {
-        Health -= damage;
-        Debug.Log($"TakeDamage called: -{damage}, Health now {Health}");
-
     }
 }

@@ -139,7 +139,7 @@ public class EnemyScript : MonoBehaviour
 
             if (playerMovement != null)
             {
-                playerMovement.TakeDamage(damage);
+                //playerMovement.TakeDamage(damage);
             }
         }
     }
