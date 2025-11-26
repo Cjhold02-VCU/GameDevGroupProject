@@ -16,7 +16,7 @@ public class EnemyScript : MonoBehaviour, IDamageable
     // Attacking
     public float timeBetweenAttacks;
     private float fireCooldown = 0f;
-    bool alreadyAttacked;
+
 
     //States
     public float sightRange, attackRange;
@@ -138,11 +138,6 @@ public class EnemyScript : MonoBehaviour, IDamageable
                 Debug.Log("Hit a damageable target: " + hit.collider.name);
             }
         }
-    }
-
-    private void ResetAttack()
-    {
-        alreadyAttacked = false;
     }
 
     public void TakeDamage(float damage)
