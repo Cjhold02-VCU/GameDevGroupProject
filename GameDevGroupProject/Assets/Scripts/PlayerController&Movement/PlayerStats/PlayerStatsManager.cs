@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerStats : MonoBehaviour, IDamageable
+public class PlayerStatsManager : MonoBehaviour, IDamageable
 {
     [Header("Health Settings")]
     public float maxHealth = 100f;

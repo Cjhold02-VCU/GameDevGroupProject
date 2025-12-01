@@ -1,13 +1,10 @@
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
-using System.Diagnostics.CodeAnalysis;
-using UnityEngine.UIElements;
-
 
 public class ProjectileLauncher : MonoBehaviour
 {
     // Hitscan Settings
-    // Hitscan settings
     public float range = 75f;
     public float damage = 25f;
     public LayerMask hitMask = ~0; // default: all layers
@@ -20,10 +17,10 @@ public class ProjectileLauncher : MonoBehaviour
     public int magazineSize, bulletsPerTap;
     public bool allowButtonHold;
 
-    int bulletsLeft, bulletsShot;
+    private int bulletsLeft, bulletsShot;
 
-    // boolsf
-    bool shooting, readyToShoot, reloading;
+    // State flags
+    private bool shooting, readyToShoot, reloading;
 
     // References
     public Camera fpsCam;
@@ -31,44 +28,38 @@ public class ProjectileLauncher : MonoBehaviour
 
     // Graphics
     public GameObject muzzleFlash;
-    public TextMeshProUGUI ammunitionDisplay;
+
+    // Events
+    [Header("Events")]
+    public UnityEvent<int> OnAmmoChanged; // current ammo only
 
     // BUG FIXING
     public bool allowInvoke = true;
 
     private void Awake()
     {
-        // Make sure the magazine is full
         bulletsLeft = magazineSize;
         readyToShoot = true;
+
+        // Initialize UI
+        OnAmmoChanged?.Invoke(bulletsLeft);
     }
 
     private void Update()
     {
         MyInput();
-
-        // Set ammo display, if it exists
-        if (ammunitionDisplay != null)
-            ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
-
     }
 
     private void MyInput()
-    {   
-        // Check if allowed to hold down button and take corresponding input
-        if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
-        else shooting = Input.GetKeyDown(KeyCode.Mouse0);
+    {
+        // Shooting input
+        shooting = allowButtonHold ? Input.GetKey(KeyCode.Mouse0) : Input.GetKeyDown(KeyCode.Mouse0);
 
-        // Reloading
-        // If press R and bullets left is less than mag size and not currently reloading
-        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) 
+        // Reload input
+        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading)
             Reload();
 
-        // Reload automatically when trying to shoot without ammo
-        // if (readyToShoot && shooting && !reloading && bulletsLeft <= 0) Reload;
-        // Could be left out for hardcore element
-
-        // If readyToShoot and shooting and not reloading and bullets left > 0
+        // Shooting logic
         if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
         {
             bulletsShot = 0;
@@ -80,104 +71,64 @@ public class ProjectileLauncher : MonoBehaviour
     {
         readyToShoot = false;
 
-        
-
-        // Find the exact hit position
+        // Find hit position
         Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
+        Vector3 targetPoint = Physics.Raycast(ray, out hit, range, hitMask) ? hit.point : ray.GetPoint(range);
 
-        // Check if ray hits target
-        Vector3 targetPoint;
-        if (Physics.Raycast(ray, out hit, range, hitMask))
-            targetPoint = hit.point;
-        else
-            targetPoint = ray.GetPoint(range);
-
-        // Calculate direction from attackpoint to targetPoint
-        // Formula for a vector from point A to point B is always A - B
+        // Direction with spread
         Vector3 directionWithoutSpread = (targetPoint - attackPoint.position).normalized;
-
-        // calculate spread
         float x = Random.Range(-spread, spread);
         float y = Random.Range(-spread, spread);
-
-        // Calculate new direction with spread
-        // Just add spread as x and y component to direction vector
         Vector3 directionWithSpread = directionWithoutSpread + new Vector3(x, y, 0);
 
-        // Perform raycast (or spherecast if configured)
+        // Perform raycast/spherecast
         bool didHit = false;
         RaycastHit finalHit;
-
         if (hitSphereCastRadius > 0f)
-        {
-            if (Physics.SphereCast(attackPoint.position, hitSphereCastRadius, directionWithSpread, out finalHit, range, hitMask))
-                didHit = true;
-        }
+            didHit = Physics.SphereCast(attackPoint.position, hitSphereCastRadius, directionWithSpread, out finalHit, range, hitMask);
         else
-        {
-            if (Physics.Raycast(attackPoint.position, directionWithSpread, out finalHit, range, hitMask))
-                didHit = true;
-        }
+            didHit = Physics.Raycast(attackPoint.position, directionWithSpread, out finalHit, range, hitMask);
 
-        // Spawn muzzle flash if assigned
+        // Muzzle flash
         if (muzzleFlash != null)
             Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 
         // Handle hit
         if (didHit)
         {
-            // Try to get the Interface from the object we hit
             IDamageable damageableTarget = finalHit.collider.GetComponent<IDamageable>();
-
-            // If it exists, damage it!
             if (damageableTarget != null)
-            {
                 damageableTarget.TakeDamage(damage);
-            }
 
-            // Apply physics impact force if rigidbody present
-            if (finalHit.rigidbody != null)
-            {
-                finalHit.rigidbody.AddForce(-finalHit.normal * impactForce, ForceMode.Impulse);
-            }
-            else
-            {
-                var rb = finalHit.collider.attachedRigidbody;
-                if (rb != null)
-                    rb.AddForce(-finalHit.normal * impactForce, ForceMode.Impulse);
-            }
+            Rigidbody rb = finalHit.rigidbody ?? finalHit.collider.attachedRigidbody;
+            if (rb != null)
+                rb.AddForce(-finalHit.normal * impactForce, ForceMode.Impulse);
 
-            // Spawn impact effect
             if (impactEffectPrefab != null)
-            {
                 Instantiate(impactEffectPrefab, finalHit.point, Quaternion.LookRotation(finalHit.normal));
-            }
         }
-
-        // Instantiate Muzzle Flash, if there is one
-        if (muzzleFlash != null)
-            Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 
         bulletsLeft--;
         bulletsShot++;
 
-        // Invoke resetShot function (if not already invoked)
+        // Notify listeners
+        Debug.Log($"Ammo left: {bulletsLeft}");
+
+        OnAmmoChanged?.Invoke(bulletsLeft);
+
         if (allowInvoke)
         {
-            Invoke("ResetShot", timeBetweenShooting);
+            Invoke(nameof(ResetShot), timeBetweenShooting);
             allowInvoke = false;
         }
 
-        // If more than one bulletsPerTap make sure to repeat shoot function
         if (bulletsShot < bulletsPerTap && bulletsLeft > 0)
-            Invoke("Shoot", timeBetweenShots);
+            Invoke(nameof(Shoot), timeBetweenShots);
     }
-
 
     private void ResetShot()
     {
-        // Allow shooting and invoking again
         readyToShoot = true;
         allowInvoke = true;
     }
@@ -185,12 +136,17 @@ public class ProjectileLauncher : MonoBehaviour
     private void Reload()
     {
         reloading = true;
-        Invoke("ReloadFinish", reloadTime);
+        Invoke(nameof(ReloadFinish), reloadTime);
     }
 
     private void ReloadFinish()
     {
         bulletsLeft = magazineSize;
         reloading = false;
+
+        // Notify listeners
+        OnAmmoChanged?.Invoke(bulletsLeft);
     }
+
+    public int GetBulletsLeft() => bulletsLeft;
 }
