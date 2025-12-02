@@ -1,47 +1,39 @@
 using UnityEngine;
 using UnityEngine.Events;
-using TMPro;
 
 public class ProjectileLauncher : MonoBehaviour
 {
-    // Hitscan Settings
+    // --- We are simplifying this. No more SphereCast option. ---
+    [Header("Hitscan Settings")]
     public float range = 75f;
     public float damage = 25f;
     public LayerMask hitMask = ~0; // default: all layers
     public GameObject impactEffectPrefab; // optional VFX prefab for impact
     public float impactForce = 0.1f; // force applied to rigidbodies on hit
-    public float hitSphereCastRadius = 0f; // 0 = single ray; >0 = use SphereCast
+    // public float hitSphereCastRadius = 0f; // REMOVED
 
-    // Gun stats
+    [Header("Gun Stats")]
     public float timeBetweenShooting, spread, reloadTime, timeBetweenShots;
     public int magazineSize, bulletsPerTap;
     public bool allowButtonHold;
 
     private int bulletsLeft, bulletsShot;
-
-    // State flags
     private bool shooting, readyToShoot, reloading;
 
-    // References
+    [Header("References")]
     public Camera fpsCam;
     public Transform attackPoint;
-
-    // Graphics
     public GameObject muzzleFlash;
 
-    // Events
     [Header("Events")]
-    public UnityEvent<int> OnAmmoChanged; // current ammo only
+    public UnityEvent<int> OnAmmoChanged;
 
-    // BUG FIXING
-    public bool allowInvoke = true;
+    private bool allowInvoke = true;
 
     private void Awake()
     {
         bulletsLeft = magazineSize;
         readyToShoot = true;
-
-        // Initialize UI
         OnAmmoChanged?.Invoke(bulletsLeft);
     }
 
@@ -52,14 +44,11 @@ public class ProjectileLauncher : MonoBehaviour
 
     private void MyInput()
     {
-        // Shooting input
         shooting = allowButtonHold ? Input.GetKey(KeyCode.Mouse0) : Input.GetKeyDown(KeyCode.Mouse0);
 
-        // Reload input
         if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading)
             Reload();
 
-        // Shooting logic
         if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
         {
             bulletsShot = 0;
@@ -71,49 +60,41 @@ public class ProjectileLauncher : MonoBehaviour
     {
         readyToShoot = false;
 
-        // Find hit position
+        // --- SIMPLIFIED RAYCAST LOGIC ---
+
+        // 1. Calculate direction with spread
         Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        RaycastHit hit;
-        Vector3 targetPoint = Physics.Raycast(ray, out hit, range, hitMask) ? hit.point : ray.GetPoint(range);
+        Vector3 spreadDirection = ray.direction; // Start with the center direction
 
-        // Direction with spread
-        Vector3 directionWithoutSpread = (targetPoint - attackPoint.position).normalized;
-        float x = Random.Range(-spread, spread);
-        float y = Random.Range(-spread, spread);
-        Vector3 directionWithSpread = directionWithoutSpread + new Vector3(x, y, 0);
+        // Add random spread
+        float spreadX = Random.Range(-spread, spread);
+        float spreadY = Random.Range(-spread, spread);
+        spreadDirection += new Vector3(spreadX, spreadY, 0);
 
-        // Perform raycast/spherecast
-        bool didHit = false;
-        RaycastHit finalHit;
-        if (hitSphereCastRadius > 0f)
-            didHit = Physics.SphereCast(attackPoint.position, hitSphereCastRadius, directionWithSpread, out finalHit, range, hitMask);
-        else
-            didHit = Physics.Raycast(attackPoint.position, directionWithSpread, out finalHit, range, hitMask);
-
-        // Muzzle flash
-        if (muzzleFlash != null)
-            Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
-
-        // Handle hit
-        if (didHit)
+        // 2. Perform the Raycast
+        if (Physics.Raycast(fpsCam.transform.position, spreadDirection, out RaycastHit hit, range, hitMask))
         {
-            IDamageable damageableTarget = finalHit.collider.GetComponent<IDamageable>();
+            // --- HANDLE THE HIT ---
+            IDamageable damageableTarget = hit.collider.GetComponent<IDamageable>();
             if (damageableTarget != null)
                 damageableTarget.TakeDamage(damage);
 
-            Rigidbody rb = finalHit.rigidbody ?? finalHit.collider.attachedRigidbody;
+            Rigidbody rb = hit.rigidbody ?? hit.collider.attachedRigidbody;
             if (rb != null)
-                rb.AddForce(-finalHit.normal * impactForce, ForceMode.Impulse);
+                rb.AddForce(-hit.normal * impactForce, ForceMode.Impulse);
 
             if (impactEffectPrefab != null)
-                Instantiate(impactEffectPrefab, finalHit.point, Quaternion.LookRotation(finalHit.normal));
+                Instantiate(impactEffectPrefab, hit.point, Quaternion.LookRotation(hit.normal));
         }
+
+        // --- END OF SIMPLIFIED LOGIC ---
+
+        // Muzzle flash - This can stay the same
+        if (muzzleFlash != null)
+            Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 
         bulletsLeft--;
         bulletsShot++;
-
-        // Notify listeners
-        Debug.Log($"Ammo left: {bulletsLeft}");
 
         OnAmmoChanged?.Invoke(bulletsLeft);
 
@@ -143,8 +124,6 @@ public class ProjectileLauncher : MonoBehaviour
     {
         bulletsLeft = magazineSize;
         reloading = false;
-
-        // Notify listeners
         OnAmmoChanged?.Invoke(bulletsLeft);
     }
 
