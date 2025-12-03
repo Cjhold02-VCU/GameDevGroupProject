@@ -210,7 +210,7 @@ MonoBehaviour:
   jumpKey: 32
   upwardsRunKey: 304
   downwardsRunKey: 306
-  wallCheckDistance: 1
+  wallCheckDistance: 2
   minJumpHeight: 2
   wallLeft: 0
   wallRight: 0
@@ -246,8 +246,8 @@ MonoBehaviour:
   unlimitedClimbJumps: 0
   climbJumps: 1
   climbJumpsLeft: 0
-  detectionLength: 0.7
-  sphereCastRadius: 0.25
+  detectionLength: 1
+  sphereCastRadius: 0.5
   maxWallLookAngle: 30
   wallFront: 0
   minWallNormalAngleChange: 5

@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 1536
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 1
@@ -542,9 +542,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 992413829457949905, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
+      propertyPath: wallCheckDistance
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1480365724979962990, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2823493776457923359, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
+      propertyPath: detectionLength
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2823493776457923359, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
+      propertyPath: sphereCastRadius
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3884491841855367223, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
       propertyPath: jumpForce
