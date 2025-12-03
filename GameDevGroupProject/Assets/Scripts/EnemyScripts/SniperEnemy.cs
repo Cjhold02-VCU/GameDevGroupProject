@@ -46,6 +46,7 @@ public class SniperEnemy : EnemyBase
         }
         else
         {
+            UpdateAimLine(false);
             Patrol();
         }
     }
@@ -112,10 +113,7 @@ public class SniperEnemy : EnemyBase
         Quaternion rotation = Quaternion.LookRotation(lookPos);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * agent.angularSpeed);
 
-        // Enable laser sight
-        aimLine.enabled = true;
-        aimLine.SetPosition(0, transform.position);
-        aimLine.SetPosition(1, player.position);
+        UpdateAimLine(true);
 
         // Check if the cooldown is over.
         if (fireCooldownTimer <= 0f)
@@ -125,6 +123,7 @@ public class SniperEnemy : EnemyBase
             fireCooldownTimer = timeBetweenAttacks;
             aimLine.enabled = false; // hide laser after shot
         }
+        
     }
 
     private void FireProjectile()
@@ -152,6 +151,25 @@ public class SniperEnemy : EnemyBase
             Rigidbody rb = projectileObj.GetComponent<Rigidbody>();
             if (rb != null)
                 rb.linearVelocity = projectileObj.transform.forward * projectileSpeed;
+        }
+    }
+    private void UpdateAimLine(bool playerVisible)
+    {
+        aimLine.enabled = true;
+
+        Vector3 start = shootOrigin != null ? shootOrigin.position : transform.position;
+        aimLine.SetPosition(0, start);
+
+        if (playerVisible)
+        {
+            // Aim directly at the player
+            aimLine.SetPosition(1, player.position);
+        }
+        else
+        {
+            // Extend the line forward in the sniper's look direction
+            Vector3 forwardEnd = start + transform.forward * 50f; // 50 units long beam
+            aimLine.SetPosition(1, forwardEnd);
         }
     }
 }
