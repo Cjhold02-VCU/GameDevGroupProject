@@ -81,6 +81,11 @@ PrefabInstance:
       insertIndex: 3
       addedObject: {fileID: 6142130805262721279}
   m_SourcePrefab: {fileID: 100100000, guid: c1a6a2978f069144ea9f83dccb2ce249, type: 3}
+--- !u!195 &3253353504810114805 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 4482848928831578361, guid: c1a6a2978f069144ea9f83dccb2ce249, type: 3}
+  m_PrefabInstance: {fileID: 1373734908929097228}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8933948006439748627 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7560346405049678367, guid: c1a6a2978f069144ea9f83dccb2ce249, type: 3}
@@ -105,7 +110,7 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 0
-  agent: {fileID: 0}
+  agent: {fileID: 3253353504810114805}
   walkPointRange: 2
   timeBetweenAttacks: 10
   projectilePrefab: {fileID: 6848214601241190102, guid: 0fe2b3650c7350f41b27561a4b220211, type: 3}
