@@ -12,6 +12,8 @@ public class SniperEnemy : EnemyBase
     public float projectileSpeed = 100f;
     public float projectileDamage = 20f;
     public Transform shootOrigin;
+    private LineRenderer aimLine;
+
 
     [Header("Detection Settings")]
     [Tooltip("Layers considered obstacles (e.g., walls).")]
@@ -19,6 +21,11 @@ public class SniperEnemy : EnemyBase
     private Vector3 walkPoint;
     private bool walkPointSet;
     private float fireCooldownTimer;
+    void Start()
+    {
+        aimLine = GetComponent<LineRenderer>();
+        aimLine.enabled = false;
+    }
 
     protected override void Update()
     {
@@ -32,7 +39,7 @@ public class SniperEnemy : EnemyBase
         {
             float distance = Vector3.Distance(transform.position, player.position);
 
-            if (distance <= agent.stoppingDistance * 2f) // close enough to attack
+            if (distance <= attackRange) // within sniper range
                 Attack();
             else
                 Chase();
@@ -105,12 +112,18 @@ public class SniperEnemy : EnemyBase
         Quaternion rotation = Quaternion.LookRotation(lookPos);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * agent.angularSpeed);
 
+        // Enable laser sight
+        aimLine.enabled = true;
+        aimLine.SetPosition(0, transform.position);
+        aimLine.SetPosition(1, player.position);
+
         // Check if the cooldown is over.
         if (fireCooldownTimer <= 0f)
         {
             FireProjectile();
             // Reset the cooldown timer.
             fireCooldownTimer = timeBetweenAttacks;
+            aimLine.enabled = false; // hide laser after shot
         }
     }
 
