@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBeforeWave: 2
   batches:
-  - enemyPrefab: {fileID: 7560346405049678367, guid: c1a6a2978f069144ea9f83dccb2ce249, type: 3}
+  - enemyPrefab: {fileID: 8933948006439748627, guid: 0c3a8deeb9ac4d341b4f755a5adb5fc1, type: 3}
     count: 3
     initialDelay: 2
     spawnInterval: 1
     spawnPointID: 1A
-  - enemyPrefab: {fileID: 7560346405049678367, guid: c1a6a2978f069144ea9f83dccb2ce249, type: 3}
+  - enemyPrefab: {fileID: 8933948006439748627, guid: 0c3a8deeb9ac4d341b4f755a5adb5fc1, type: 3}
     count: 3
     initialDelay: 2
     spawnInterval: 1

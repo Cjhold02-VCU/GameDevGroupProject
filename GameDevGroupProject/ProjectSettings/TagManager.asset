@@ -13,11 +13,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - EnemyProjectiles
   - whatIsWall
   - whatIsGround
   - Player
-  - 
+  - Enemy
   - 
   - 
   - 

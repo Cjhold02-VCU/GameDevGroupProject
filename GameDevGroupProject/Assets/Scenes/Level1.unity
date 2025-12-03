@@ -1882,6 +1882,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 322717807025632602, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 362
+      objectReference: {fileID: 0}
     - target: {fileID: 2145515820981829082, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
       propertyPath: weapon
       value: 
