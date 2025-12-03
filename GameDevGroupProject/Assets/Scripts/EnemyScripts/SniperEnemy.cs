@@ -172,4 +172,16 @@ public class SniperEnemy : EnemyBase
             aimLine.SetPosition(1, forwardEnd);
         }
     }
+
+    protected override void Die()
+    {
+        // sniper-specific cleanup
+        if (aimLine != null)
+            aimLine.enabled = false;
+
+        enabled = false;
+
+        base.Die(); // call base logic
+    }
+
 }
