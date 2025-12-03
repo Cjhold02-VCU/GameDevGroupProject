@@ -56,6 +56,7 @@ public class SniperEnemy : EnemyBase
         }
         return false;
     }
+
     protected override void Patrol()
     {
         // Tell the agent it's allowed to move.
@@ -120,7 +121,7 @@ public class SniperEnemy : EnemyBase
             Debug.LogError("SniperEnemy is trying to fire, but projectilePrefab is not set!", this);
             return;
         }
-
+        
         // Determine the spawn position and rotation.
         Vector3 spawnPos = shootOrigin != null ? shootOrigin.position : transform.position;
         Quaternion spawnRot = Quaternion.LookRotation((player.position - spawnPos).normalized);
