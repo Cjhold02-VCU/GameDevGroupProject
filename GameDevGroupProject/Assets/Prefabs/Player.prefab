@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4733270524343002095}
   - component: {fileID: 795350010457020613}
-  - component: {fileID: 5342735702404514041}
+  - component: {fileID: 844373082591806381}
   - component: {fileID: 3884491841855367223}
   - component: {fileID: 1867567681920178016}
   - component: {fileID: 333706178202103859}
@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 8120587557739728288}
   m_Layer: 11
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,7 +69,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &5342735702404514041
+--- !u!114 &844373082591806381
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,7 +112,7 @@ MonoBehaviour:
   groundDrag: 5
   regularFrictionMaterial: {fileID: 13400000, guid: d5afeed53c0895b42b690b317f0960c2, type: 2}
   frictionlessMaterial: {fileID: 13400000, guid: 38fbce01b0e14fe4b896f1b655597fb3, type: 2}
-  jumpForce: 12
+  jumpForce: 14
   jumpCooldown: 0.25
   airMultiplier: 0.4
   maxAirJumps: 1
@@ -210,7 +210,7 @@ MonoBehaviour:
   jumpKey: 32
   upwardsRunKey: 304
   downwardsRunKey: 306
-  wallCheckDistance: 0.7
+  wallCheckDistance: 1
   minJumpHeight: 2
   wallLeft: 0
   wallRight: 0
@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 8622525826444140663}
   m_Layer: 11
   m_Name: PlayerObj
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -299,7 +299,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4733270524343002095}

@@ -64,9 +64,13 @@ PrefabInstance:
       propertyPath: m_Speed
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 4482848928831578361, guid: c1a6a2978f069144ea9f83dccb2ce249, type: 3}
+      propertyPath: m_Acceleration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5250301759596134532, guid: c1a6a2978f069144ea9f83dccb2ce249, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7560346405049678367, guid: c1a6a2978f069144ea9f83dccb2ce249, type: 3}
       propertyPath: m_Name

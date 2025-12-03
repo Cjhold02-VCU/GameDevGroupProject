@@ -124,8 +124,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        // ground Check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * .5f + .2f, whatIsGround);
+        // Ground Check
+        // Always matches the collider, no matter the scale
+        float rayLength = c_collider.bounds.extents.y + 0.2f;
+        Vector3 rayOrigin = c_collider.bounds.center;
+
+        grounded = Physics.Raycast(rayOrigin, Vector3.down, rayLength, whatIsGround);
 
         MyInput();
         SpeedControl();
