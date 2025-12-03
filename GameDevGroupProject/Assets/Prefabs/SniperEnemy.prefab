@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7560346405049678367, guid: c1a6a2978f069144ea9f83dccb2ce249, type: 3}
       propertyPath: m_Name
-      value: RangerEnemy
+      value: SniperEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 7560346405049678367, guid: c1a6a2978f069144ea9f83dccb2ce249, type: 3}
       propertyPath: m_Layer
@@ -79,19 +79,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7560346405049678367, guid: c1a6a2978f069144ea9f83dccb2ce249, type: 3}
       insertIndex: 3
-      addedObject: {fileID: 8127911025561266090}
+      addedObject: {fileID: 6142130805262721279}
   m_SourcePrefab: {fileID: 100100000, guid: c1a6a2978f069144ea9f83dccb2ce249, type: 3}
---- !u!195 &3253353504810114805 stripped
-NavMeshAgent:
-  m_CorrespondingSourceObject: {fileID: 4482848928831578361, guid: c1a6a2978f069144ea9f83dccb2ce249, type: 3}
-  m_PrefabInstance: {fileID: 1373734908929097228}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8933948006439748627 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7560346405049678367, guid: c1a6a2978f069144ea9f83dccb2ce249, type: 3}
   m_PrefabInstance: {fileID: 1373734908929097228}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8127911025561266090
+--- !u!114 &6142130805262721279
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,20 +95,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 8933948006439748627}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6470d7ff89f82c44383d9e23f145022c, type: 3}
+  m_Script: {fileID: 11500000, guid: b5687e6370bc22c4cbf79c034ecc9d43, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RangerEnemy
+  m_EditorClassIdentifier: Assembly-CSharp::SniperEnemy
   maxHealth: 100
   currentHealth: 0
-  sightRange: 50
-  attackRange: 15
+  sightRange: 80
+  attackRange: 80
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 2048
-  agent: {fileID: 3253353504810114805}
-  walkPointRange: 10
-  timeBetweenAttacks: 2
+    m_Bits: 0
+  agent: {fileID: 0}
+  walkPointRange: 2
+  timeBetweenAttacks: 10
   projectilePrefab: {fileID: 6848214601241190102, guid: 0fe2b3650c7350f41b27561a4b220211, type: 3}
-  projectileSpeed: 15
-  projectileDamage: 10
+  projectileSpeed: 100
+  projectileDamage: 20
   shootOrigin: {fileID: 0}
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 0
