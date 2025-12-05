@@ -620,6 +620,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3373483966879920135, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
+      propertyPath: damage
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3373483966879920135, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
+      propertyPath: magazineSize
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3373483966879920135, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
+      propertyPath: timeBetweenShooting
+      value: 0.075
+      objectReference: {fileID: 0}
     - target: {fileID: 4733270524343002095, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1884,6 +1896,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4572340650564483590, guid: c4d169d62a7211242844d69e8d7d455b, type: 3}
   m_PrefabInstance: {fileID: 1307323571}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1104257748 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3615462841783630930, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
+  m_PrefabInstance: {fileID: 1158366457}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1153937326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2006,14 +2023,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 322717807025632602, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 362
-      objectReference: {fileID: 0}
     - target: {fileID: 2145515820981829082, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
       propertyPath: weapon
       value: 
       objectReference: {fileID: 434250407}
+    - target: {fileID: 3615462841783630930, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4155223581395201737, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
+      propertyPath: m_text
+      value: Level 1 Complete!
+      objectReference: {fileID: 0}
     - target: {fileID: 4239919136816443506, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2101,6 +2122,22 @@ PrefabInstance:
     - target: {fileID: 7887949667992716394, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
       propertyPath: m_Name
       value: In-game UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546560001414373543, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1869716187}
+    - target: {fileID: 8546560001414373543, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadNextLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546560001414373543, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546560001414373543, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3890,7 +3927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGameOver: 0
-  levelCompleteUI: {fileID: 0}
+  levelCompleteUI: {fileID: 1104257748}
   gameOverUI: {fileID: 0}
 --- !u!4 &1869716188
 Transform:
@@ -4338,11 +4375,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0fae9a2e7c39a0e4bbbd7be2b3fd3228, type: 2}
   - {fileID: 11400000, guid: 768f6c371a075f04c965d0779b02b04b, type: 2}
   - {fileID: 11400000, guid: b91c4bc739d73cd40990e80c72ed1114, type: 2}
-  spawnPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  spawnPoints: []
   currentWaveIndex: 0
   enemiesAlive: 0
   isLevelComplete: 0
@@ -4351,7 +4384,19 @@ MonoBehaviour:
       m_Calls: []
   OnLevelComplete:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1869716187}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ShowLevelCompleteUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &2038233373
 Transform:
   m_ObjectHideFlags: 0
