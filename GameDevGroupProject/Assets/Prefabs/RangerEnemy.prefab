@@ -185,8 +185,11 @@ PrefabInstance:
       propertyPath: m_Speed
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       value: 7
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 <<<<<<< HEAD
@@ -195,6 +198,9 @@ PrefabInstance:
       value: 7
 >>>>>>> 41f45e83d261ae442cf77337026db11f2dc9578f
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -204,7 +210,10 @@ PrefabInstance:
       value: 15
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
       objectReference: {fileID: 0}
@@ -216,6 +225,9 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
