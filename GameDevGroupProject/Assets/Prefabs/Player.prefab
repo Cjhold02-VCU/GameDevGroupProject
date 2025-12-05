@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4733270524343002095}
   - component: {fileID: 795350010457020613}
+  - component: {fileID: 7988341179059646800}
   - component: {fileID: 844373082591806381}
   - component: {fileID: 3884491841855367223}
   - component: {fileID: 1867567681920178016}
@@ -69,6 +70,25 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &7988341179059646800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480365724979962990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0540116a58d9cd343a7a9527d1e63b91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStatsManager
+  maxHealth: 100
+  OnHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &844373082591806381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,22 +121,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0
-  walkSpeed: 10
+  walkSpeed: 15
   sprintSpeed: 15
   dashSpeed: 20
   slideSpeed: 40
-  wallrunSpeed: 8.5
-  climbSpeed: 3
+  wallrunSpeed: 15
+  climbSpeed: 8
   speedIncreaseMultiplier: 1.5
   slopeIncreaseMultiplier: 2.5
   groundDrag: 5
   regularFrictionMaterial: {fileID: 13400000, guid: d5afeed53c0895b42b690b317f0960c2, type: 2}
   frictionlessMaterial: {fileID: 13400000, guid: 38fbce01b0e14fe4b896f1b655597fb3, type: 2}
-  jumpForce: 14
+  jumpForce: 15
   jumpCooldown: 0.25
   airMultiplier: 0.4
   maxAirJumps: 1
-  airJumpForceBoostPerc: 0
+  airJumpForceBoostPerc: 1
   airJumpCooldown: 0.3
   readyToAirJump: 0
   slideBoostForce: 0
@@ -260,7 +280,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1480365724979962990}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd99c0a8826c5534693afe9a57eadb3c, type: 3}
   m_Name: 
@@ -282,7 +302,7 @@ GameObject:
   - component: {fileID: 1409007188015577059}
   - component: {fileID: 4034156092177905943}
   - component: {fileID: 8622525826444140663}
-  m_Layer: 11
+  m_Layer: 7
   m_Name: PlayerObj
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -488,7 +508,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 7991
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -593,7 +613,7 @@ Transform:
   m_GameObject: {fileID: 8688339460111224944}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -700,12 +720,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5039819986126367342, guid: 5a9e195a919d6804fb5c7dbe931ba199, type: 3}
+      propertyPath: damage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5039819986126367342, guid: 5a9e195a919d6804fb5c7dbe931ba199, type: 3}
       propertyPath: fpsCam
       value: 
       objectReference: {fileID: 1479935418586467032}
     - target: {fileID: 5039819986126367342, guid: 5a9e195a919d6804fb5c7dbe931ba199, type: 3}
       propertyPath: spread
       value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5039819986126367342, guid: 5a9e195a919d6804fb5c7dbe931ba199, type: 3}
+      propertyPath: magazineSize
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5039819986126367342, guid: 5a9e195a919d6804fb5c7dbe931ba199, type: 3}
       propertyPath: ammunitionDisplay

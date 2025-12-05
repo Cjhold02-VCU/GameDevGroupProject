@@ -112,7 +112,7 @@ MonoBehaviour:
   attackRange: 80
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 2176
   agent: {fileID: 3253353504810114805}
   patrolRange: 5
   idealEngagementDistance: 30

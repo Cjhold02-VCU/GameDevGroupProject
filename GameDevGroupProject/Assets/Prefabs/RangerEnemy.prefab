@@ -62,11 +62,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4482848928831578361, guid: c1a6a2978f069144ea9f83dccb2ce249, type: 3}
       propertyPath: m_Speed
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4482848928831578361, guid: c1a6a2978f069144ea9f83dccb2ce249, type: 3}
       propertyPath: m_Acceleration
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5250301759596134532, guid: c1a6a2978f069144ea9f83dccb2ce249, type: 3}
       propertyPath: m_IsTrigger
@@ -117,7 +117,7 @@ MonoBehaviour:
   attackRange: 30
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 2176
   agent: {fileID: 3253353504810114805}
   walkPointRange: 10
   timeBetweenAttacks: 2

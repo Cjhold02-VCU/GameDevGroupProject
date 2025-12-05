@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 29584696d86666b43a807c484f425ae6, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 57b4555d0885d064893cb094f64fe883, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -214,7 +214,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 0.5095411, b: 0.2783019, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -277,13 +277,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 173830661}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.364618, y: -0.45824036, z: 0.21368062, w: 0.7819272}
-  m_LocalPosition: {x: 0, y: 11.69, z: 0}
+  m_LocalRotation: {x: 0.056277297, y: -0.86039835, z: 0.48397347, w: 0.1493893}
+  m_LocalPosition: {x: 97.1, y: 53.2, z: 45.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1942057917}
-  m_LocalEulerAnglesHint: {x: 50, y: -60.744, z: 0}
+  m_LocalEulerAnglesHint: {x: 58.172, y: -157.408, z: 5.196}
 --- !u!1001 &221505178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -296,17 +296,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3373483966879920135, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
-      propertyPath: ammunitionDisplay
-      value: 
-      objectReference: {fileID: 881878435}
     - target: {fileID: 4733270524343002095, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.95
       objectReference: {fileID: 0}
     - target: {fileID: 4733270524343002095, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.01
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4733270524343002095, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -340,39 +336,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7194090681807341845, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1480365724979962990, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 221505180}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
---- !u!1 &221505179 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1480365724979962990, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
-  m_PrefabInstance: {fileID: 221505178}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &221505180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 221505179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0540116a58d9cd343a7a9527d1e63b91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerStatsManager
-  maxHealth: 100
-  OnHealthChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDeath:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &222129372
 PrefabInstance:
   m_ObjectHideFlags: 0
