@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0540116a58d9cd343a7a9527d1e63b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStatsManager
-  maxHealth: 100
+  maxHealth: 10
   OnHealthChanged:
     m_PersistentCalls:
       m_Calls: []

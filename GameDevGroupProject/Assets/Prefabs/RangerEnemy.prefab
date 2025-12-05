@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4482848928831578361, guid: c1a6a2978f069144ea9f83dccb2ce249, type: 3}
       propertyPath: m_Speed
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4482848928831578361, guid: c1a6a2978f069144ea9f83dccb2ce249, type: 3}
       propertyPath: m_Acceleration
@@ -114,7 +114,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   sightRange: 50
-  attackRange: 15
+  attackRange: 30
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 2048
@@ -123,5 +123,5 @@ MonoBehaviour:
   timeBetweenAttacks: 2
   projectilePrefab: {fileID: 6848214601241190102, guid: 0fe2b3650c7350f41b27561a4b220211, type: 3}
   projectileSpeed: 15
-  projectileDamage: 10
+  projectileDamage: 1
   shootOrigin: {fileID: 0}

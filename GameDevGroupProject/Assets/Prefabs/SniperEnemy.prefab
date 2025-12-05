@@ -112,17 +112,20 @@ MonoBehaviour:
   attackRange: 80
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   agent: {fileID: 3253353504810114805}
-  walkPointRange: 2
-  timeBetweenAttacks: 10
-  projectilePrefab: {fileID: 6848214601241190102, guid: 0fe2b3650c7350f41b27561a4b220211, type: 3}
-  projectileSpeed: 100
-  projectileDamage: 20
+  patrolRange: 5
+  idealEngagementDistance: 30
+  hitscanDamage: 3
+  timeBetweenAttacks: 3
   shootOrigin: {fileID: 0}
-  obstructionMask:
+  laserShotEffectPrefab: {fileID: 7572487201326309000, guid: cf2e8d1d41821024b90b578b6f370270, type: 3}
+  laserVisualHitMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 5943
+  aimLaser: {fileID: 7718281907369278806}
+  aimTrackingSpeed: 5
+  chargeUpTime: 2
 --- !u!120 &7718281907369278806
 LineRenderer:
   serializedVersion: 2
