@@ -108,8 +108,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SniperEnemy
   maxHealth: 100
   currentHealth: 0
-  sightRange: 80
-  attackRange: 80
+  sightRange: 200
+  attackRange: 175
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 2176
