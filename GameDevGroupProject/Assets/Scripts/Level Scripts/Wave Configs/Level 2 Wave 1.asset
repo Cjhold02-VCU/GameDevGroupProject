@@ -11,6 +11,26 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e7c1494c4f6fbf4697c53bc54f38b2a, type: 3}
   m_Name: Level 2 Wave 1
-  m_EditorClassIdentifier: Assembly-CSharp::WaveConfig
+  m_EditorClassIdentifier: 
   timeBeforeWave: 2
-  batches: []
+  batches:
+  - enemyPrefab: {fileID: 8933948006439748627, guid: 0c3a8deeb9ac4d341b4f755a5adb5fc1, type: 3}
+    count: 2
+    initialDelay: 4
+    spawnInterval: 1
+    spawnPointID: 1A
+  - enemyPrefab: {fileID: 8933948006439748627, guid: 0c3a8deeb9ac4d341b4f755a5adb5fc1, type: 3}
+    count: 2
+    initialDelay: 4
+    spawnInterval: 1
+    spawnPointID: 2A
+  - enemyPrefab: {fileID: 8933948006439748627, guid: ce650c9b554570948998d733f0e9cf80, type: 3}
+    count: 3
+    initialDelay: 0
+    spawnInterval: 1
+    spawnPointID: 1A
+  - enemyPrefab: {fileID: 8933948006439748627, guid: ce650c9b554570948998d733f0e9cf80, type: 3}
+    count: 3
+    initialDelay: 0
+    spawnInterval: 1
+    spawnPointID: 2A

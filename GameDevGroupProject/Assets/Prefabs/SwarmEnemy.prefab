@@ -222,13 +222,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SwarmEnemy
   maxHealth: 60
   currentHealth: 0
-  sightRange: 50
+  sightRange: 100
   attackRange: 1
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 2048
   agent: {fileID: 460215533837765938}
-  moveSpeed: 10
+  moveSpeed: 12
   meleeDamage: 2
 --- !u!195 &460215533837765938
 NavMeshAgent:

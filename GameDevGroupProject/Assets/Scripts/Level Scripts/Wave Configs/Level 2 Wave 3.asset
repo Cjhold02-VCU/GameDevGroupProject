@@ -13,4 +13,64 @@ MonoBehaviour:
   m_Name: Level 2 Wave 3
   m_EditorClassIdentifier: Assembly-CSharp::WaveConfig
   timeBeforeWave: 2
-  batches: []
+  batches:
+  - enemyPrefab: {fileID: 8933948006439748627, guid: ce650c9b554570948998d733f0e9cf80, type: 3}
+    count: 2
+    initialDelay: 0
+    spawnInterval: 0.25
+    spawnPointID: 1A
+  - enemyPrefab: {fileID: 8933948006439748627, guid: ce650c9b554570948998d733f0e9cf80, type: 3}
+    count: 2
+    initialDelay: 0
+    spawnInterval: 0.25
+    spawnPointID: 2A
+  - enemyPrefab: {fileID: 8933948006439748627, guid: ce650c9b554570948998d733f0e9cf80, type: 3}
+    count: 2
+    initialDelay: 0
+    spawnInterval: 0.25
+    spawnPointID: 3A
+  - enemyPrefab: {fileID: 8933948006439748627, guid: ce650c9b554570948998d733f0e9cf80, type: 3}
+    count: 2
+    initialDelay: 0
+    spawnInterval: 0.25
+    spawnPointID: 4A
+  - enemyPrefab: {fileID: 8933948006439748627, guid: 0c3a8deeb9ac4d341b4f755a5adb5fc1, type: 3}
+    count: 1
+    initialDelay: 0
+    spawnInterval: 1
+    spawnPointID: 1A
+  - enemyPrefab: {fileID: 8933948006439748627, guid: 0c3a8deeb9ac4d341b4f755a5adb5fc1, type: 3}
+    count: 1
+    initialDelay: 0
+    spawnInterval: 1
+    spawnPointID: 2A
+  - enemyPrefab: {fileID: 8933948006439748627, guid: 0c3a8deeb9ac4d341b4f755a5adb5fc1, type: 3}
+    count: 1
+    initialDelay: 0
+    spawnInterval: 1
+    spawnPointID: 3A
+  - enemyPrefab: {fileID: 8933948006439748627, guid: 0c3a8deeb9ac4d341b4f755a5adb5fc1, type: 3}
+    count: 1
+    initialDelay: 0
+    spawnInterval: 1
+    spawnPointID: 4A
+  - enemyPrefab: {fileID: 8933948006439748627, guid: 61cb52c3b5472304c923e7334c7b67cb, type: 3}
+    count: 1
+    initialDelay: 0
+    spawnInterval: 1
+    spawnPointID: 1B
+  - enemyPrefab: {fileID: 8933948006439748627, guid: 61cb52c3b5472304c923e7334c7b67cb, type: 3}
+    count: 1
+    initialDelay: 0
+    spawnInterval: 1
+    spawnPointID: 2B
+  - enemyPrefab: {fileID: 8933948006439748627, guid: 61cb52c3b5472304c923e7334c7b67cb, type: 3}
+    count: 1
+    initialDelay: 0
+    spawnInterval: 1
+    spawnPointID: 3B
+  - enemyPrefab: {fileID: 8933948006439748627, guid: 61cb52c3b5472304c923e7334c7b67cb, type: 3}
+    count: 1
+    initialDelay: 0
+    spawnInterval: 1
+    spawnPointID: 3B

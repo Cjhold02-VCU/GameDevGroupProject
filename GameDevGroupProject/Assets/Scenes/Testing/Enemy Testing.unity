@@ -513,14 +513,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1480365724979962990, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3373483966879920135, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
-      propertyPath: ammunitionDisplay
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4733270524343002095, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -561,40 +553,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7194090681807341845, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
-    - {fileID: 5342735702404514041, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1480365724979962990, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 221505180}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
---- !u!1 &221505179 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1480365724979962990, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
+--- !u!114 &221505180 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3165172653737018162, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
   m_PrefabInstance: {fileID: 221505178}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &221505180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 221505179}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0540116a58d9cd343a7a9527d1e63b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStatsManager
-  maxHealth: 100
-  OnHealthChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDeath:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &222129372
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3763,7 +3737,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038233371}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fcc5bde2ca088c84e912e6e3d5f17e0d, type: 3}
   m_Name: 
