@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6470d7ff89f82c44383d9e23f145022c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RangerEnemy
-  maxHealth: 160
+  maxHealth: 140
   currentHealth: 0
   sightRange: 50
   attackRange: 30
@@ -122,6 +122,6 @@ MonoBehaviour:
   walkPointRange: 10
   timeBetweenAttacks: 2
   projectilePrefab: {fileID: 6848214601241190102, guid: 0fe2b3650c7350f41b27561a4b220211, type: 3}
-  projectileSpeed: 15
+  projectileSpeed: 20
   projectileDamage: 1
   shootOrigin: {fileID: 0}

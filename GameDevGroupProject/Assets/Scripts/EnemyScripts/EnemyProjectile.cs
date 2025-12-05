@@ -45,7 +45,7 @@ public class EnemyProjectile : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // Try to find a damageable component on the object we hit.
-        IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
+        IDamageable damageable = collision.gameObject.GetComponentInParent<IDamageable>();
 
         // If it's the player (or anything else that can take damage)...
         if (damageable != null)

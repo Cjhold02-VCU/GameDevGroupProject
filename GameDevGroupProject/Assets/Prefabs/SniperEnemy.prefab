@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5687e6370bc22c4cbf79c034ecc9d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SniperEnemy
-  maxHealth: 120
+  maxHealth: 100
   currentHealth: 0
   sightRange: 80
   attackRange: 80

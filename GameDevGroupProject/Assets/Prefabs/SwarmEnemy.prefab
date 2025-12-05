@@ -228,7 +228,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   agent: {fileID: 460215533837765938}
-  moveSpeed: 8
+  moveSpeed: 10
   meleeDamage: 2
 --- !u!195 &460215533837765938
 NavMeshAgent:
