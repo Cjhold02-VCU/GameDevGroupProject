@@ -700,6 +700,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5039819986126367342, guid: 5a9e195a919d6804fb5c7dbe931ba199, type: 3}
+      propertyPath: range
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 5039819986126367342, guid: 5a9e195a919d6804fb5c7dbe931ba199, type: 3}
       propertyPath: damage
       value: 20
       objectReference: {fileID: 0}
@@ -713,7 +717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5039819986126367342, guid: 5a9e195a919d6804fb5c7dbe931ba199, type: 3}
       propertyPath: magazineSize
-      value: 60
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 5039819986126367342, guid: 5a9e195a919d6804fb5c7dbe931ba199, type: 3}
       propertyPath: ammunitionDisplay
@@ -723,6 +727,10 @@ PrefabInstance:
       propertyPath: impactEffectPrefab
       value: 
       objectReference: {fileID: 8464950693656172981, guid: 83ad694f134ab954580473212156b35a, type: 3}
+    - target: {fileID: 5039819986126367342, guid: 5a9e195a919d6804fb5c7dbe931ba199, type: 3}
+      propertyPath: timeBetweenShooting
+      value: 0.075
+      objectReference: {fileID: 0}
     - target: {fileID: 6392308822099663746, guid: 5a9e195a919d6804fb5c7dbe931ba199, type: 3}
       propertyPath: m_Name
       value: weapon

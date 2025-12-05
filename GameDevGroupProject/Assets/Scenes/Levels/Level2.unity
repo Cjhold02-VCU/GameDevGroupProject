@@ -555,9 +555,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8e27919777621d04398311013c78f43b, type: 2}
   spawnPoints:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   currentWaveIndex: 0
   enemiesAlive: 0
   isLevelComplete: 0
@@ -566,7 +563,19 @@ MonoBehaviour:
       m_Calls: []
   OnLevelComplete:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8255029857197735424, guid: e4a37c18d80a224478b14941decbb099, type: 3}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ShowLevelCompleteUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &500812203
 Transform:
   m_ObjectHideFlags: 0
@@ -2383,10 +2392,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 322717807025632602, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 362
-      objectReference: {fileID: 0}
     - target: {fileID: 2145515820981829082, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
       propertyPath: weapon
       value: 
