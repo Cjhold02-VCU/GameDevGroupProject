@@ -101,10 +101,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0
-  walkSpeed: 7
-  sprintSpeed: 10
+  walkSpeed: 10
+  sprintSpeed: 15
   dashSpeed: 20
-  slideSpeed: 30
+  slideSpeed: 40
   wallrunSpeed: 8.5
   climbSpeed: 3
   speedIncreaseMultiplier: 1.5

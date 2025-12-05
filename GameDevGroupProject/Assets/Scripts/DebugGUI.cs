@@ -36,12 +36,12 @@ public class DebugGUI : MonoBehaviour
             return;
         }
 
-        GUILayout.Label($"State: {pm.state}");
-        GUILayout.Label($"isBoosted?: {pm.isBoosted}");
+        //GUILayout.Label($"State: {pm.state}");
+        //GUILayout.Label($"isBoosted?: {pm.isBoosted}");
 
         // Speed from the Rigidbody (flat speed)
         Vector3 flatVel = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
         float speed = flatVel.magnitude;
-        GUILayout.Label($"Speed: {speed:F1}");
+        //GUILayout.Label($"Speed: {speed:F1}");
     }
 }
