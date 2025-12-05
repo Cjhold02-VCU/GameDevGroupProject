@@ -550,7 +550,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcc5bde2ca088c84e912e6e3d5f17e0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waves: []
+  waves:
+  - {fileID: 11400000, guid: 59a3000a990bb6a489a81e0617a0b10d, type: 2}
+  - {fileID: 11400000, guid: 4458a20e3e5545e42bfd12ea286f8c35, type: 2}
+  - {fileID: 11400000, guid: 8e27919777621d04398311013c78f43b, type: 2}
   spawnPoints:
   - {fileID: 0}
   - {fileID: 0}
