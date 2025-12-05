@@ -1,0 +1,1614 @@
+fileFormatVersion: 2
+guid: b1eca284f2fb04e4eb757fb40ca97b68
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_0
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 1190
+        width: 86
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93ebe9e3ef9d27240ae0def2679d43e2
+      internalID: -763300603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_1
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 1189
+        width: 91
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9f5b1d3382d8c747869ecb0ce62b2b5
+      internalID: -1396569635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_2
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 1190
+        width: 86
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 610ed65429af1ea41989eb8ae7e8002d
+      internalID: 816062935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_3
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 1189
+        width: 90
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0531a13db1e435d49b6bdef35b4d39d3
+      internalID: -594750837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_4
+      rect:
+        serializedVersion: 2
+        x: 958
+        y: 1189
+        width: 126
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05aa7791db7f95c4cbe12dc88224eb10
+      internalID: 1838296281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_5
+      rect:
+        serializedVersion: 2
+        x: 1195
+        y: 1189
+        width: 113
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3294578031a651f48813f90829b6c14f
+      internalID: -2083059250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_6
+      rect:
+        serializedVersion: 2
+        x: 1398
+        y: 1189
+        width: 125
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6a5e06cae9aab94fb674f9d44fd2e91
+      internalID: 1787190562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_7
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 1048
+        width: 94
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9c6a6295b101fd44b5e716c7ffd135d
+      internalID: -373171788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_8
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 1046
+        width: 77
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: decd70be6c0fde146a2be4e369195bcf
+      internalID: 1686784503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_9
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 1048
+        width: 67
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9adadc5f47bb74e4c8414ec85e73e8d1
+      internalID: -1486404344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_10
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 1050
+        width: 88
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ef7ca668baf5a349af21828002df565
+      internalID: -1815784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_11
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 1047
+        width: 140
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1d8b50f0aa58834390542755a484d8e
+      internalID: 1177838907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_12
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 1047
+        width: 157
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae057e692ac899041a29d2cf02105491
+      internalID: 256619213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_13
+      rect:
+        serializedVersion: 2
+        x: 1401
+        y: 1048
+        width: 118
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49d26cc87530d164d9c1137b1752c6af
+      internalID: -1185085741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_14
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 910
+        width: 72
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d24e54cbc413f74d9f88becb24c7b48
+      internalID: -947470415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_15
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 905
+        width: 55
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71b20a01c106d504d93dd6073136962e
+      internalID: 288776269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_16
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 906
+        width: 69
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9cf7fd228b20be4999554284ffacfc4
+      internalID: -1046216899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_17
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 911
+        width: 55
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 061a25fa63be2014491acc533d5430fa
+      internalID: 896207633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_18
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 904
+        width: 110
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb9c6e7d0f629954c968bf5a612c7973
+      internalID: -1382604666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_19
+      rect:
+        serializedVersion: 2
+        x: 1136
+        y: 904
+        width: 135
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da7db5ad36dbd144a9bf4767cfc828d2
+      internalID: -1246316124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_20
+      rect:
+        serializedVersion: 2
+        x: 1428
+        y: 905
+        width: 59
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b68a8e7039ce79e47b67d33bd3621fb0
+      internalID: 303456770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_21
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 771
+        width: 70
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d44e7a1034d4fda4d8c4d7cf4b45587b
+      internalID: 1728996055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_22
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 766
+        width: 78
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fab9478b8913acf47869559b40e8b62a
+      internalID: -273703588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_23
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 767
+        width: 86
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af9e92908cc2403408e6cc8a0623a230
+      internalID: -262953622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_24
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 769
+        width: 68
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd6dd428f8130174fa4baa749226f981
+      internalID: 2142984308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_25
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 763
+        width: 90
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 420a83be9d4e44c46899b75a57e7f871
+      internalID: -800594154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_26
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 763
+        width: 84
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77c7e4e0209e1804c809700af593bbc4
+      internalID: 1953452666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_27
+      rect:
+        serializedVersion: 2
+        x: 1409
+        y: 765
+        width: 84
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a330543d98332c44e936dc478f9f5f2e
+      internalID: -1650095915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_28
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 630
+        width: 85
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6c2c51a764c6f74cb4d0b67f10f1dab
+      internalID: 701503549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_29
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 627
+        width: 88
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddd89fbd720745545a2a1ee3115fa9f9
+      internalID: -1324696618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_30
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 630
+        width: 88
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32f5b7cd2b635e846bb67f1dc2771f34
+      internalID: -869689289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_31
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 627
+        width: 88
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4b891b6760999b4f88f4fd30c8ce3a1
+      internalID: 740013654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_32
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 623
+        width: 103
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38089a04240ca824ab22242f4ba23024
+      internalID: 435237995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_33
+      rect:
+        serializedVersion: 2
+        x: 1166
+        y: 623
+        width: 108
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f655728b14b30b94d9e8c87bd7f0fde8
+      internalID: -74792506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_34
+      rect:
+        serializedVersion: 2
+        x: 1397
+        y: 628
+        width: 116
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d772f2b8c6bddd4dbad1e1bcbf1ee72
+      internalID: -1057136694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_35
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 487
+        width: 87
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a1ce8604d47e03448c5f19f28d02320
+      internalID: 1495669555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_36
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 489
+        width: 78
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e752f460c577fd14fbf2970ef91c10a2
+      internalID: -1501697034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_37
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 491
+        width: 69
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2aaa28f7bf98b6048a92719581dc1b30
+      internalID: -497714119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_38
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 486
+        width: 87
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83885cbd345bd8249adb849f7773e897
+      internalID: -416194551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_39
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 488
+        width: 114
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ee6be11f9f529e4583cadf5c967b768
+      internalID: -902750562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_40
+      rect:
+        serializedVersion: 2
+        x: 1192
+        y: 488
+        width: 127
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19473de08cf7bd34c8669559022bac1c
+      internalID: -1908382759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_41
+      rect:
+        serializedVersion: 2
+        x: 1413
+        y: 489
+        width: 114
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c34a3f48f83a66d44b3c34a08a5ee7a4
+      internalID: -1382480801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_42
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 346
+        width: 82
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87ac3f2885dfb6841926cfea03ce1c90
+      internalID: 1479426605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_43
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 351
+        width: 54
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe4731aa28984a442929983ce5ef25f4
+      internalID: -974695827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_44
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 350
+        width: 69
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 353f6789aa6b0f842ab9119c7fc46707
+      internalID: -39228440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_45
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 345
+        width: 59
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 509b1938a9f8e3041af5fbbb9b7af728
+      internalID: -373894625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_46
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 347
+        width: 125
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f2d7b83f3ba9924aba4333439b9bda2
+      internalID: -647072561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_47
+      rect:
+        serializedVersion: 2
+        x: 1203
+        y: 347
+        width: 138
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67470714ac567264aa0536bd85fd2219
+      internalID: 828625902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_48
+      rect:
+        serializedVersion: 2
+        x: 1439
+        y: 346
+        width: 64
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd9ceeaa1ee697c44ab44f960f200b6c
+      internalID: 910970332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_49
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 208
+        width: 67
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d43c53184c55bc4aa9551191f8d448a
+      internalID: 900564344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_50
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 210
+        width: 80
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 866a4be705ff58842a0b8b4bee501b12
+      internalID: 356125244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_51
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 208
+        width: 90
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edf2e8cb2165e734fb71eea6b84991fb
+      internalID: -243669580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_52
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 205
+        width: 70
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4dd82cfb666b394d8c47c2ceb1f4054
+      internalID: -1744289131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_53
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 205
+        width: 82
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 083a4a6ba3674f941bcc82c0ef66e8ea
+      internalID: 2129019801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_54
+      rect:
+        serializedVersion: 2
+        x: 1217
+        y: 205
+        width: 103
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47e03bd6b2319a34994f7cae4098f015
+      internalID: -183713578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_55
+      rect:
+        serializedVersion: 2
+        x: 1421
+        y: 206
+        width: 80
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fce8ada560be774cb375a2b9944e9c0
+      internalID: 876513211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_56
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 54
+        width: 120
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea76c25337e134144a8509e7340e7e7c
+      internalID: 1538673730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_57
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 51
+        width: 97
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d34abd204585d24a9a4ed95569cb303
+      internalID: -1172844034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_58
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 53
+        width: 108
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 352749b6b1a4ef54e9a5620ca6b74831
+      internalID: 746471376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_59
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 51
+        width: 106
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb9bb875afc2e5743b838836e82cc6f8
+      internalID: 193020903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_60
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 56
+        width: 97
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5eeb40255d1546049be0d8e798282e3c
+      internalID: -1838768080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_61
+      rect:
+        serializedVersion: 2
+        x: 1196
+        y: 59
+        width: 91
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da3c0cfc69806f345b6610a63816d370
+      internalID: 1061512621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_62
+      rect:
+        serializedVersion: 2
+        x: 1421
+        y: 61
+        width: 92
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 682e213dd823a1545a94bd5042ebc802
+      internalID: -1954990210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_63
+      rect:
+        serializedVersion: 2
+        x: 1646
+        y: 52
+        width: 98
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eebe4087fa856154f8c0ffe69e21bde8
+      internalID: 1811989643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_unpaletted_sheet-Picsart-BackgroundRemover_64
+      rect:
+        serializedVersion: 2
+        x: 1875
+        y: 59
+        width: 86
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9387a30a20b9e5f4ea56821164dc4a05
+      internalID: 530432727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 04bbf87c66236b44ba37524145a6c736
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_0: -763300603
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_1: -1396569635
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_10: -1815784
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_11: 1177838907
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_12: 256619213
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_13: -1185085741
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_14: -947470415
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_15: 288776269
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_16: -1046216899
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_17: 896207633
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_18: -1382604666
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_19: -1246316124
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_2: 816062935
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_20: 303456770
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_21: 1728996055
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_22: -273703588
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_23: -262953622
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_24: 2142984308
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_25: -800594154
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_26: 1953452666
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_27: -1650095915
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_28: 701503549
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_29: -1324696618
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_3: -594750837
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_30: -869689289
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_31: 740013654
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_32: 435237995
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_33: -74792506
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_34: -1057136694
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_35: 1495669555
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_36: -1501697034
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_37: -497714119
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_38: -416194551
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_39: -902750562
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_4: 1838296281
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_40: -1908382759
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_41: -1382480801
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_42: 1479426605
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_43: -974695827
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_44: -39228440
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_45: -373894625
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_46: -647072561
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_47: 828625902
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_48: 910970332
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_49: 900564344
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_5: -2083059250
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_50: 356125244
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_51: -243669580
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_52: -1744289131
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_53: 2129019801
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_54: -183713578
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_55: 876513211
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_56: 1538673730
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_57: -1172844034
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_58: 746471376
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_59: 193020903
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_6: 1787190562
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_60: -1838768080
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_61: 1061512621
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_62: -1954990210
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_63: 1811989643
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_64: 530432727
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_7: -373171788
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_8: 1686784503
+      Toad_unpaletted_sheet-Picsart-BackgroundRemover_9: -1486404344
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
