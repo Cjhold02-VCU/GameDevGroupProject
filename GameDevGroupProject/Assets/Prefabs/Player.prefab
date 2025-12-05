@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4733270524343002095}
   - component: {fileID: 795350010457020613}
-  - component: {fileID: 3165172653737018162}
   - component: {fileID: 844373082591806381}
   - component: {fileID: 3884491841855367223}
   - component: {fileID: 1867567681920178016}
@@ -70,25 +69,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &3165172653737018162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1480365724979962990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0540116a58d9cd343a7a9527d1e63b91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerStatsManager
-  maxHealth: 100
-  OnHealthChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDeath:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &844373082591806381
 MonoBehaviour:
   m_ObjectHideFlags: 0
