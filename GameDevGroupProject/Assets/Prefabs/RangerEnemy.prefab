@@ -184,36 +184,17 @@ PrefabInstance:
     - target: {fileID: 4482848928831578361, guid: c1a6a2978f069144ea9f83dccb2ce249, type: 3}
       propertyPath: m_Speed
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-      value: 7
-=======
-=======
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 <<<<<<< HEAD
       value: 20
 =======
-      value: 7
->>>>>>> 41f45e83d261ae442cf77337026db11f2dc9578f
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 4482848928831578361, guid: c1a6a2978f069144ea9f83dccb2ce249, type: 3}
       propertyPath: m_Acceleration
       value: 15
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
       objectReference: {fileID: 0}
@@ -225,12 +206,6 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 0
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 5250301759596134532, guid: c1a6a2978f069144ea9f83dccb2ce249, type: 3}
       propertyPath: m_IsTrigger
