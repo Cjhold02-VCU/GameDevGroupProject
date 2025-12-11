@@ -10,9 +10,11 @@ public class GameManager : MonoBehaviour
 
     [Header("UI References")]
     public GameObject levelCompleteUI; // Assign your "You Win" Panel here
+    public GameObject pauseMenuUI; // Assign pause menu Panel here
     public GameObject gameOverUI;
 
-    private void Awake()
+
+    private void Awake() // On Awake
     {
         if (Instance == null)
         {
@@ -34,6 +36,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ShowPauseMenuUI()
+    {
+        // 1. Unlock Cursor
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        // 2. Pause Game (Optional, prevents player moving while in menu)
+        Time.timeScale = 0f;
+
+        // 3. Show UI
+        if (pauseMenuUI != null) pauseMenuUI.SetActive(true);
+
+        // 4. Stop Ambient Sound
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.Stop("AmbientCity");
+        }
+    }
+
     public void ShowLevelCompleteUI()
     {
         // 1. Unlock Cursor
@@ -52,6 +73,11 @@ public class GameManager : MonoBehaviour
             SoundManager.Instance.Stop("AmbientCity");
         }
     }
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("Main Menu"); // Loads main menu on buttonpress
+    }
+
 
     public void LoadNextLevel()
     {
