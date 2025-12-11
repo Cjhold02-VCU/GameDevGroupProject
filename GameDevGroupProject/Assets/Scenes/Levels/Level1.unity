@@ -16130,10 +16130,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundManager
   sounds:
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: AmbientCity
+    clip: {fileID: 8300000, guid: 2afce7f62207fe04eb388f2c174b53f7, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Gunshot
+    clip: {fileID: 8300000, guid: e9f807963a44d4ec187bb2969077aaed, type: 3}
+    volume: 0.215
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Reload
+    clip: {fileID: 8300000, guid: a4837c98a16d8424fac636372986f885, type: 3}
+    volume: 0.215
+    pitch: 1
     loop: 0
     source: {fileID: 0}
 --- !u!4 &1924362948
