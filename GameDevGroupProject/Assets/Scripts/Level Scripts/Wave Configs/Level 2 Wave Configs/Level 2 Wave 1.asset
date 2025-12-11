@@ -23,7 +23,7 @@ MonoBehaviour:
     count: 2
     initialDelay: 4
     spawnInterval: 1
-    spawnPointID: 2A
+    spawnPointID: 3A
   - enemyPrefab: {fileID: 8933948006439748627, guid: ce650c9b554570948998d733f0e9cf80, type: 3}
     count: 3
     initialDelay: 0
@@ -33,4 +33,4 @@ MonoBehaviour:
     count: 3
     initialDelay: 0
     spawnInterval: 1
-    spawnPointID: 2A
+    spawnPointID: 3A
