@@ -25,6 +25,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        // Start the ambient sound when the game begins
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.Play("AmbientCity");
+        }
+    }
+
     public void ShowLevelCompleteUI()
     {
         // 1. Unlock Cursor
@@ -36,6 +45,12 @@ public class GameManager : MonoBehaviour
 
         // 3. Show UI
         if (levelCompleteUI != null) levelCompleteUI.SetActive(true);
+
+        // 4. Stop Ambient Sound
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.Stop("AmbientCity");
+        }
     }
 
     public void LoadNextLevel()
@@ -61,6 +76,12 @@ public class GameManager : MonoBehaviour
 
         isGameOver = true;
         Debug.Log("Game Over Logic Started...");
+
+        // Stop the ambient sound on death
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.Stop("AmbientCity");
+        }
 
         // 1. Disable Player Controls (Optional, but feels good)
         // 2. Show Game Over UI

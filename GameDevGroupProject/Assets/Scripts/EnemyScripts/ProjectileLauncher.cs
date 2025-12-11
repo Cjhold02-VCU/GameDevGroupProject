@@ -60,6 +60,12 @@ public class ProjectileLauncher : MonoBehaviour
     {
         readyToShoot = false;
 
+        // We play the sound effect here. The name must match what you set in the inspector.
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.Play("Gunshot");
+        }
+
         // --- SIMPLIFIED RAYCAST LOGIC ---
 
         // 1. Calculate direction with spread
@@ -117,6 +123,12 @@ public class ProjectileLauncher : MonoBehaviour
     private void Reload()
     {
         reloading = true;
+        
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.Play("Reload");
+        }
+
         Invoke(nameof(ReloadFinish), reloadTime);
     }
 
