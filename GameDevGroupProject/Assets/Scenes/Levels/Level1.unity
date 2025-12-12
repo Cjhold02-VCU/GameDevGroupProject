@@ -1654,6 +1654,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
+--- !u!114 &221505179 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 844373082591806381, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
+  m_PrefabInstance: {fileID: 221505178}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0540116a58d9cd343a7a9527d1e63b91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStatsManager
+--- !u!114 &221505180 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3373483966879920135, guid: 25d319d1eff8a77419b1417e21e278c5, type: 3}
+  m_PrefabInstance: {fileID: 221505178}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 070057b2f137d064baa78211b12c74a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &222129372
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8518,6 +8540,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1433046028}
+    - target: {fileID: 2145515820981829082, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 221505180}
     - target: {fileID: 4239919136816443506, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -8606,6 +8632,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1433046028}
+    - target: {fileID: 7419684379389542192, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
+      propertyPath: playerStats
+      value: 
+      objectReference: {fileID: 221505179}
     - target: {fileID: 7887949667992716394, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
       propertyPath: m_Name
       value: In-game UI
@@ -8623,11 +8653,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
---- !u!1 &1158366458 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3615462841783630930, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
-  m_PrefabInstance: {fileID: 1158366457}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1158366459 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5895075221368588530, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
@@ -16669,10 +16694,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8255029857197735424, guid: e4a37c18d80a224478b14941decbb099, type: 3}
-      propertyPath: levelCompleteUI
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2920184553033231438, guid: 84563503da5e2be4aa68c55143d572ad, type: 3}
       propertyPath: gameOverUI
       value: 
@@ -16684,7 +16705,7 @@ PrefabInstance:
     - target: {fileID: 2920184553033231438, guid: 84563503da5e2be4aa68c55143d572ad, type: 3}
       propertyPath: levelCompleteUI
       value: 
-      objectReference: {fileID: 1158366458}
+      objectReference: {fileID: 6891376011618915122, guid: 20c3613ae6ac005499045882006bc5db, type: 3}
     - target: {fileID: 4905345196799093632, guid: 84563503da5e2be4aa68c55143d572ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.80981
@@ -16728,6 +16749,10 @@ PrefabInstance:
     - target: {fileID: 5268184893599388126, guid: 84563503da5e2be4aa68c55143d572ad, type: 3}
       propertyPath: m_Name
       value: UIManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8255029857197735424, guid: e4a37c18d80a224478b14941decbb099, type: 3}
+      propertyPath: levelCompleteUI
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
