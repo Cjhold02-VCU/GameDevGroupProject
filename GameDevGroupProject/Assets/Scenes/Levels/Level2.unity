@@ -12742,6 +12742,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6749530733862008070, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1408455971}
+    - target: {fileID: 6749530733862008070, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 6971880937988535658, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
