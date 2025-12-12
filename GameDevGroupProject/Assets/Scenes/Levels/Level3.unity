@@ -610,7 +610,7 @@ PrefabInstance:
     - target: {fileID: 2920184553033231438, guid: 84563503da5e2be4aa68c55143d572ad, type: 3}
       propertyPath: levelCompleteUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6891376011618915122, guid: 02c7d478bdda44b4fa11515a60a90434, type: 3}
     - target: {fileID: 4905345196799093632, guid: 84563503da5e2be4aa68c55143d572ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 24.08559
