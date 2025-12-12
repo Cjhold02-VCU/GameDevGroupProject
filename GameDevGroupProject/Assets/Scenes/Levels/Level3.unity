@@ -660,6 +660,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84563503da5e2be4aa68c55143d572ad, type: 3}
+--- !u!114 &198555199 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2920184553033231438, guid: 84563503da5e2be4aa68c55143d572ad, type: 3}
+  m_PrefabInstance: {fileID: 198555198}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2cb8681bd76fba4eb42324b31a61eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIManager
 --- !u!1001 &202912364
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5411,6 +5422,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2104198972}
     m_Modifications:
+    - target: {fileID: 1951425051807911879, guid: 02c7d478bdda44b4fa11515a60a90434, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 198555199}
+    - target: {fileID: 1951425051807911879, guid: 02c7d478bdda44b4fa11515a60a90434, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 2523196263667100495, guid: 02c7d478bdda44b4fa11515a60a90434, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
