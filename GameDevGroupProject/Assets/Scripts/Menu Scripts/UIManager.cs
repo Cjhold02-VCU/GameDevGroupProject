@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 /// <summary>
 /// Manages the UI elements for a specific scene, including win/loss screens and the pause menu.
@@ -59,12 +61,30 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+
+    }
+
+    public void LoadLevel1()
+    {
+        SceneManager.LoadScene("Level1");
+
+    }
+
+    public void RestartLevel()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
+    }
+
     // --- Public methods for managing game state ---
 
     public void PauseGame()
     {
         isPaused = true;
-
+        AudioListener.pause = true;
         // Freeze game time
         Time.timeScale = 0f;
 
@@ -82,6 +102,7 @@ public class UIManager : MonoBehaviour
     public void ResumeGame()
     {
         isPaused = false;
+        AudioListener.pause = false;
 
         // Resume game time
         Time.timeScale = 1f;

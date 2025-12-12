@@ -226,18 +226,18 @@ PrefabInstance:
     - target: {fileID: 2456874633013211138, guid: e25be3b2d2f2b4544ab2be01bac7be16, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1262878237}
+      objectReference: {fileID: 1569800662}
     - target: {fileID: 2456874633013211138, guid: e25be3b2d2f2b4544ab2be01bac7be16, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2456874633013211138, guid: e25be3b2d2f2b4544ab2be01bac7be16, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadNextLevel
+      value: LoadLevel1
       objectReference: {fileID: 0}
     - target: {fileID: 2456874633013211138, guid: e25be3b2d2f2b4544ab2be01bac7be16, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameManager, Assembly-CSharp
+      value: UIManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2456874633013211138, guid: e25be3b2d2f2b4544ab2be01bac7be16, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -542,7 +542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6409125117107044088, guid: 4e79e11069d737e448326afd7aa60da1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.6
+      value: 36.3
       objectReference: {fileID: 0}
     - target: {fileID: 6409125117107044088, guid: 4e79e11069d737e448326afd7aa60da1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -565,9 +565,10 @@ PrefabInstance:
       value: "Controls:\n\t- Use WASD to control the characters Forward, Left, \n\t 
         Backward, and Right movement respectfully\n\t- Use Spacebar to Jump\n\t-
         Use CTRL to Slide\n\t- Use F to Dash\n\t- Left Mouse Button to Shoot\n\t-
-        Approach a wall and hold towards it to Climb or Wallrun\nGameplay:\n\t- Fight
-        off waves of enemies and delve deeper into your \n      own dream state.
-        Beat the final level to wake up.\n\t"
+        Approach a wall and hold towards it to Climb or Wallrun\n\t- TAB to open
+        Pause Menu and TAB to return to game\nGameplay:\n\t- Fight off waves of enemies
+        and delve deeper into your \n      own dream state. Beat the final level
+        to wake up.\n\t"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1096,7 +1097,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5711365650965416700, guid: 9db61089b0d60454798d95db225f6a23, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 246.7448
+      value: 252.5509
       objectReference: {fileID: 0}
     - target: {fileID: 5711365650965416700, guid: 9db61089b0d60454798d95db225f6a23, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1132,7 +1133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5711365650965416700, guid: 9db61089b0d60454798d95db225f6a23, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 102.5295
+      value: 95.52456
       objectReference: {fileID: 0}
     - target: {fileID: 5711365650965416700, guid: 9db61089b0d60454798d95db225f6a23, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1155,8 +1156,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5711365652271513677, guid: 9db61089b0d60454798d95db225f6a23, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -38.5558
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711365652271513677, guid: 9db61089b0d60454798d95db225f6a23, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -15
+      value: -50.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1259,17 +1264,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4a37c18d80a224478b14941decbb099, type: 3}
---- !u!114 &1262878237 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8255029857197735424, guid: e4a37c18d80a224478b14941decbb099, type: 3}
-  m_PrefabInstance: {fileID: 1262878236}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c992f029921f44f40a231cd641f651ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &1335191778 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 653640923811071310, guid: e25be3b2d2f2b4544ab2be01bac7be16, type: 3}
@@ -1304,6 +1298,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2cb8681bd76fba4eb42324b31a61eee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayButton
+  levelCompleteUI: {fileID: 0}
+  gameOverUI: {fileID: 0}
+  pauseMenuUI: {fileID: 0}
 --- !u!224 &1569800663
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1529,3 +1526,4 @@ SceneRoots:
   - {fileID: 968832895}
   - {fileID: 1005161871}
   - {fileID: 1183391406}
+  - {fileID: 1569800663}
