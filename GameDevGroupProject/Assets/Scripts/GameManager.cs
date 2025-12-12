@@ -30,8 +30,10 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKey(KeyCode.P))
+        // Check for KeyCode P
+        if (Input.GetKeyDown(KeyCode.P))
         {
+            // Pause game if not already paused
             if (isPaused) ResumeGame();
             else ShowPauseMenuUI();
         }
@@ -48,17 +50,17 @@ public class GameManager : MonoBehaviour
 
     public void ShowPauseMenuUI()
     {
-        // 1. Unlock Cursor
+        // Unlock Cursor
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        // 2. Pause Game (Optional, prevents player moving while in menu)
+        // Pause Game
         Time.timeScale = 0f;
 
-        // 3. Show UI
+        // Show UI
         if (pauseMenuUI != null) pauseMenuUI.SetActive(true);
 
-        // 4. Stop Ambient Sound
+        // Stop Ambient Sound
         if (SoundManager.Instance != null)
         {
             SoundManager.Instance.Stop("AmbientCity");
@@ -66,6 +68,7 @@ public class GameManager : MonoBehaviour
     }
     public void ResumeGame()
     {
+        // Set is paused to false
         isPaused = false;
 
         // Lock Cursor back to game
