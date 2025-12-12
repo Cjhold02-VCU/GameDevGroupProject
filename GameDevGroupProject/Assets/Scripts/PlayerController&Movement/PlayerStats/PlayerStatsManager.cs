@@ -47,7 +47,7 @@ public class PlayerStatsManager : MonoBehaviour, IDamageable
         Debug.Log("Player Died!");
         OnDeath?.Invoke();
 
-        // Notify the GameManager to handle the Game Loop logic
-        GameManager.Instance.PlayerDied();
+        // Notify the GameManager to handle the Game Over sequence and events.
+        GameManager.Instance.TriggerPlayerDied();
     }
 }

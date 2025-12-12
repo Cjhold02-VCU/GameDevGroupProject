@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events; // <-- Add this namespace
 
 public class GameManager : MonoBehaviour
 {
@@ -8,13 +9,15 @@ public class GameManager : MonoBehaviour
     [Header("Game State")]
     public bool isGameOver = false;
 
-    [Header("UI References")]
-    public GameObject levelCompleteUI; // Assign your "You Win" Panel here
-    public GameObject pauseMenuUI; // Assign pause menu Panel here
-    public GameObject gameOverUI;
+    // --- REPLACED UI REFERENCES WITH EVENTS ---
+    [Header("Game Events")]
+    [Tooltip("This event is fired when the level is successfully completed.")]
+    public UnityEvent OnLevelComplete;
+    [Tooltip("This event is fired when the player has died.")]
+    public UnityEvent OnPlayerDeath;
 
 
-    private void Awake() // On Awake
+    private void Awake()
     {
         if (Instance == null)
         {
@@ -27,60 +30,44 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        // Start the ambient sound when the game begins
-        if (SoundManager.Instance != null)
-        {
-            SoundManager.Instance.Play("AmbientCity");
-        }
-    }
-
-    public void ShowPauseMenuUI()
+    // This is now the CENTRAL place to trigger the "Level Complete" logic.
+    public void TriggerLevelComplete()
     {
         // 1. Unlock Cursor
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        // 2. Pause Game (Optional, prevents player moving while in menu)
+        // 2. Pause Game
         Time.timeScale = 0f;
 
-        // 3. Show UI
-        if (pauseMenuUI != null) pauseMenuUI.SetActive(true);
-
-        // 4. Stop Ambient Sound
-        if (SoundManager.Instance != null)
-        {
-            SoundManager.Instance.Stop("AmbientCity");
-        }
+        // 3. Announce that the level is complete. Any listener (like our UIManager) will hear this.
+        Debug.Log("GameManager: Firing OnLevelComplete event.");
+        OnLevelComplete?.Invoke();
     }
 
-    public void ShowLevelCompleteUI()
+    // This is now the CENTRAL place to trigger the "Game Over" logic.
+    public void TriggerPlayerDied()
     {
-        // 1. Unlock Cursor
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        if (isGameOver) return;
+        isGameOver = true;
 
-        // 2. Pause Game (Optional, prevents player moving while in menu)
-        Time.timeScale = 0f;
+        // Announce that the player has died.
+        Debug.Log("GameManager: Firing OnPlayerDeath event.");
+        OnPlayerDeath?.Invoke();
 
-        // 3. Show UI
-        if (levelCompleteUI != null) levelCompleteUI.SetActive(true);
+        // Stop sounds, etc. here if needed.
+        // SoundManager.Instance.StopMusic();
 
-        // 4. Stop Ambient Sound
-        if (SoundManager.Instance != null)
-        {
-            SoundManager.Instance.Stop("AmbientCity");
-        }
-    }
-    public void LoadMainMenu()
-    {
-        SceneManager.LoadScene("Main Menu"); // Loads main menu on buttonpress
+        // 3. Restart Scene after delay
+        Invoke(nameof(RestartGame), 3f);
     }
 
+    #region Scene Management
+    // These functions can be called by UI buttons
 
     public void LoadNextLevel()
     {
+        isGameOver = false;
         Time.timeScale = 1f; // Unpause
 
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
@@ -96,29 +83,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void PlayerDied()
-    {
-        if (isGameOver) return;
-
-        isGameOver = true;
-        Debug.Log("Game Over Logic Started...");
-
-        // Stop the ambient sound on death
-        if (SoundManager.Instance != null)
-        {
-            SoundManager.Instance.Stop("AmbientCity");
-        }
-
-        // 1. Disable Player Controls (Optional, but feels good)
-        // 2. Show Game Over UI
-        // 3. Restart Scene after delay
-
-        Invoke(nameof(RestartGame), 3f);
-    }
-
     public void RestartGame()
     {
         isGameOver = false;
+        Time.timeScale = 1f; // Unpause
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+    #endregion
 }
