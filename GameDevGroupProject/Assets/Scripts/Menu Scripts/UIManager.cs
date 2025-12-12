@@ -72,6 +72,15 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene("Level1");
 
     }
+    public void LoadNextLevel()
+    {
+        // Get current scene index
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        // Load the next scene (make sure it's added in Build Settings!)
+        SceneManager.LoadScene(currentSceneIndex + 1);
+    }
+
 
     public void RestartLevel()
     {
