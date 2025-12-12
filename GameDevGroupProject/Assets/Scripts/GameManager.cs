@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Game State")]
     public bool isGameOver = false;
+    private bool isPaused = false;
 
     [Header("UI References")]
     public GameObject levelCompleteUI; // Assign your "You Win" Panel here
@@ -24,6 +25,15 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    public void Update()
+    {
+        if (Input.GetKey(KeyCode.P))
+        {
+            if (isPaused) ResumeGame();
+            else ShowPauseMenuUI();
         }
     }
 
@@ -54,6 +64,28 @@ public class GameManager : MonoBehaviour
             SoundManager.Instance.Stop("AmbientCity");
         }
     }
+    public void ResumeGame()
+    {
+        isPaused = false;
+
+        // Lock Cursor back to game
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        // Resume Game
+        Time.timeScale = 1f;
+
+        // Hide UI
+        if (pauseMenuUI != null) pauseMenuUI.SetActive(false);
+
+        // Resume Ambient Sound
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.Play("AmbientCity");
+        }
+    }
+
+
 
     public void ShowLevelCompleteUI()
     {
@@ -73,11 +105,11 @@ public class GameManager : MonoBehaviour
             SoundManager.Instance.Stop("AmbientCity");
         }
     }
+
     public void LoadMainMenu()
     {
         SceneManager.LoadScene("Main Menu"); // Loads main menu on buttonpress
     }
-
 
     public void LoadNextLevel()
     {
