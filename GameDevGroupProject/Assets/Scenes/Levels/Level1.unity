@@ -8518,10 +8518,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1433046028}
-    - target: {fileID: 3516810124347553840, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4239919136816443506, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -8606,30 +8602,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1433046028}
-    - target: {fileID: 5461661581372735526, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RestartLevel
-      objectReference: {fileID: 0}
-    - target: {fileID: 5461661581372735526, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UIManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5895075221368588530, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6749530733862008070, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1433046028}
-    - target: {fileID: 6749530733862008070, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 6749530733862008070, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UIManager, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 7887949667992716394, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
       propertyPath: m_Name
       value: In-game UI

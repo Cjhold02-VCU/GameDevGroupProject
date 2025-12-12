@@ -67,6 +67,12 @@ public class UIManager : MonoBehaviour
 
     }
 
+    public void LoadLevel1()
+    {
+        SceneManager.LoadScene("Level1");
+
+    }
+
     public void RestartLevel()
     {
         string currentSceneName = SceneManager.GetActiveScene().name;
@@ -78,7 +84,7 @@ public class UIManager : MonoBehaviour
     public void PauseGame()
     {
         isPaused = true;
-
+        AudioListener.pause = true;
         // Freeze game time
         Time.timeScale = 0f;
 
@@ -96,6 +102,7 @@ public class UIManager : MonoBehaviour
     public void ResumeGame()
     {
         isPaused = false;
+        AudioListener.pause = false;
 
         // Resume game time
         Time.timeScale = 1f;
