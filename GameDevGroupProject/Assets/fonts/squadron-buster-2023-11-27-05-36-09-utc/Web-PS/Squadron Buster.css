@@ -1,9 +1,0 @@
-/* Webfont: SquadronBuster-Regular */@font-face {
-    font-family: 'SquadronBuster';
-    src: url('Squadron Buster.woff2') format('woff2'), /* Modern Browsers */
-         url('Squadron Buster.otf') format('opentype'); /* Safari, Android, iOS */
-             font-style: normal;
-    font-weight: normal;
-    text-rendering: optimizeLegibility;
-}
-
