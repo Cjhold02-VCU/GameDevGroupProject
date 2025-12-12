@@ -1129,6 +1129,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4239919136816443506}
     m_Modifications:
+    - target: {fileID: 101402269140083226, guid: 27793e0d682488545a5113b2bae9d03a, type: 3}
+      propertyPath: m_Color.b
+      value: 0.20754719
+      objectReference: {fileID: 0}
+    - target: {fileID: 101402269140083226, guid: 27793e0d682488545a5113b2bae9d03a, type: 3}
+      propertyPath: m_Color.g
+      value: 0.20754719
+      objectReference: {fileID: 0}
+    - target: {fileID: 101402269140083226, guid: 27793e0d682488545a5113b2bae9d03a, type: 3}
+      propertyPath: m_Color.r
+      value: 0.20754719
+      objectReference: {fileID: 0}
+    - target: {fileID: 101402269140083226, guid: 27793e0d682488545a5113b2bae9d03a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044773825730172935, guid: 27793e0d682488545a5113b2bae9d03a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7785880403517381138, guid: 27793e0d682488545a5113b2bae9d03a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1212,6 +1232,10 @@ PrefabInstance:
     - target: {fileID: 9068505411866570975, guid: 27793e0d682488545a5113b2bae9d03a, type: 3}
       propertyPath: m_Name
       value: pauseMenuUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068505411866570975, guid: 27793e0d682488545a5113b2bae9d03a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
