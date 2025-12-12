@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 /// <summary>
 /// Manages the UI elements for a specific scene, including win/loss screens and the pause menu.
@@ -57,6 +59,12 @@ public class UIManager : MonoBehaviour
                 PauseGame();
             }
         }
+    }
+
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+
     }
 
     // --- Public methods for managing game state ---

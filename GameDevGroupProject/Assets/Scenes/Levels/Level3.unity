@@ -366,6 +366,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 167409865}
+  - component: {fileID: 167409866}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -392,6 +393,38 @@ Transform:
   - {fileID: 575512589}
   m_Father: {fileID: 1942057917}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &167409866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167409864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 153eee548bb637b439080170a10bbfcf, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &173830661
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,7 +602,7 @@ PrefabInstance:
     - target: {fileID: 2920184553033231438, guid: 84563503da5e2be4aa68c55143d572ad, type: 3}
       propertyPath: pauseMenuUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1481774009}
     - target: {fileID: 2920184553033231438, guid: 84563503da5e2be4aa68c55143d572ad, type: 3}
       propertyPath: levelCompleteUI
       value: 
@@ -628,7 +661,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2920184553033231438, guid: 84563503da5e2be4aa68c55143d572ad, type: 3}
   m_PrefabInstance: {fileID: 198555198}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 931532829}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2cb8681bd76fba4eb42324b31a61eee, type: 3}
@@ -1817,7 +1850,6 @@ GameObject:
   - component: {fileID: 673201789}
   - component: {fileID: 673201788}
   - component: {fileID: 673201787}
-  - component: {fileID: 673201786}
   - component: {fileID: 673201785}
   m_Layer: 10
   m_Name: Floor
@@ -1840,38 +1872,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: 0
   textureDensity: 0.2
---- !u!114 &673201786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 673201784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedVersion: 0
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
-  m_BuildHeightMesh: 0
 --- !u!65 &673201787
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2017,7 +2017,6 @@ GameObject:
   - component: {fileID: 687970609}
   - component: {fileID: 687970608}
   - component: {fileID: 687970607}
-  - component: {fileID: 687970606}
   - component: {fileID: 687970605}
   m_Layer: 10
   m_Name: Floor (1)
@@ -2040,38 +2039,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: 0
   textureDensity: 0.2
---- !u!114 &687970606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 687970604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedVersion: 0
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
-  m_BuildHeightMesh: 0
 --- !u!65 &687970607
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2671,7 +2638,6 @@ GameObject:
   - component: {fileID: 857077015}
   - component: {fileID: 857077014}
   - component: {fileID: 857077013}
-  - component: {fileID: 857077012}
   - component: {fileID: 857077011}
   m_Layer: 10
   m_Name: Floor (2)
@@ -2694,38 +2660,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: 0
   textureDensity: 0.2
---- !u!114 &857077012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 857077010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedVersion: 0
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
-  m_BuildHeightMesh: 0
 --- !u!65 &857077013
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2911,6 +2845,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4572340650564483590, guid: c4d169d62a7211242844d69e8d7d455b, type: 3}
   m_PrefabInstance: {fileID: 915666886}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &931532829 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5268184893599388126, guid: 84563503da5e2be4aa68c55143d572ad, type: 3}
+  m_PrefabInstance: {fileID: 198555198}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &964231927
 GameObject:
@@ -4491,6 +4430,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1481774009 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5895075221368588530, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
+  m_PrefabInstance: {fileID: 2104198971}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1486722325
 GameObject:
   m_ObjectHideFlags: 0
@@ -6533,6 +6477,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: UIManager, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 5771220075756658653, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 931532829}
+    - target: {fileID: 5771220075756658653, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777066441493131388, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
+      propertyPath: pauseMenuUI
+      value: 
+      objectReference: {fileID: 1481774009}
+    - target: {fileID: 6777066441493131388, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
+      propertyPath: levelCompleteUI
+      value: 
+      objectReference: {fileID: 2104198972}
     - target: {fileID: 7419684379389542192, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
       propertyPath: playerStats
       value: 
