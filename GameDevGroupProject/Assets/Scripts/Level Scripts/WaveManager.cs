@@ -25,6 +25,17 @@ public class WaveManager : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+
+        // This ensures the GameManager exists. If not, it provides a clear error
+        // to guide you or your teammates on how to fix the scene setup.
+        if (GameManager.Instance == null)
+        {
+            Debug.LogError("WaveManager ERROR: GameManager.Instance is not found! " +
+                           "Please ensure a GameManager exists in the scene OR that the " +
+                           "GameInitializer script is set up correctly in the scene.", this);
+            this.enabled = false; // Disable this script to prevent further errors.
+            return;
+        }
     }
 
     private void Start()
