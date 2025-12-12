@@ -1,82 +1,113 @@
 using UnityEngine;
-using System; // Needed for Array.Find
+using System;
+using UnityEngine.SceneManagement; // <-- Add this
 
+/// <summary>
+/// A robust, centralized audio manager for the game.
+/// It uses two dedicated AudioSources: one for one-shot sound effects (SFX)
+/// and another for looping ambient tracks or music. This is a scalable design
+/// that prevents sounds from cutting each other off.
+/// </summary>
 public class SoundManager : MonoBehaviour
 {
-    // The static instance for easy access from other scripts
     public static SoundManager Instance;
 
-    // An array to hold all the sounds we want to use.
-    // You'll drag your audio clips into this in the Inspector.
+    [Header("Audio Sources")]
+    [Tooltip("The AudioSource for playing short, non-looping sound effects.")]
+    public AudioSource sfxSource;
+    [Tooltip("The AudioSource for playing looping ambient sounds or music.")]
+    public AudioSource musicSource;
+
+    [Header("Sound Library")]
     public Sound[] sounds;
 
     void Awake()
     {
         // --- Singleton Pattern ---
-        // This ensures there is only ever one SoundManager instance.
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
             return;
         }
-        // This prevents the SoundManager from being destroyed when a new scene is loaded.
-        DontDestroyOnLoad(gameObject);
-        // --- End Singleton Pattern ---
 
+        // --- Setup Audio Sources ---
+        if (sfxSource == null) sfxSource = gameObject.AddComponent<AudioSource>();
+        if (musicSource == null) musicSource = gameObject.AddComponent<AudioSource>();
 
-        // --- Create AudioSources ---
-        // Loop through each of our 'Sound' objects...
-        foreach (Sound s in sounds)
+        musicSource.loop = true;
+    }
+
+    // --- NEW: Subscribe to the sceneLoaded event ---
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    // --- NEW: Unsubscribe to prevent memory leaks ---
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    // --- NEW: This method is called every time a new scene finishes loading ---
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Stop any music that was playing from the previous scene.
+        if (musicSource.isPlaying)
         {
-            // ...create an AudioSource component on the SoundManager's GameObject...
-            s.source = gameObject.AddComponent<AudioSource>();
-            // ...and copy the properties from our Sound object to the AudioSource.
-            s.source.clip = s.clip;
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-            s.source.loop = s.loop;
+            musicSource.Stop();
+        }
+
+        // --- LOOK FOR SCENE-SPECIFIC AUDIO SETTINGS ---
+        // We can add a simple script to our scenes to define what music should play.
+        // For now, let's just hard-code it for your first level.
+        // Replace "Level1" with the actual name of your first gameplay scene.
+        if (scene.name == "Level1")
+        {
+            Play("AmbientCity");
         }
     }
 
-    // --- Public Methods for Playing Sounds ---
-
     /// <summary>
-    /// Plays a sound from the sounds array by its name.
+    /// Finds a sound by name in the library.
     /// </summary>
-    /// <param name="name">The name of the sound to play.</param>
+    private Sound FindSound(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning($"SoundManager: Sound '{name}' not found!");
+            return null;
+        }
+        return s;
+    }
+
     public void Play(string name)
     {
-        // Use Array.Find to search the 'sounds' array for a Sound object
-        // where the sound's 'name' matches the name passed to the function.
-        Sound s = Array.Find(sounds, sound => sound.name == name);
+        Sound s = FindSound(name);
+        if (s == null) return;
 
-        if (s == null)
+        if (s.loop)
         {
-            Debug.LogWarning("Sound: " + name + " not found!");
-            return;
+            musicSource.clip = s.clip;
+            musicSource.volume = s.volume;
+            musicSource.pitch = s.pitch;
+            musicSource.Play();
         }
-
-        s.source.Play();
+        else
+        {
+            sfxSource.pitch = s.pitch;
+            sfxSource.PlayOneShot(s.clip, s.volume);
+        }
     }
 
-    /// <summary>
-    /// Stops a sound from the sounds array by its name.
-    /// </summary>
-    /// <param name="name">The name of the sound to stop.</param>
-    public void Stop(string name)
+    public void StopMusic()
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-
-        if (s == null)
-        {
-            Debug.LogWarning("Sound: " + name + " not found!");
-            return;
-        }
-
-        s.source.Stop();
+        musicSource.Stop();
     }
 }

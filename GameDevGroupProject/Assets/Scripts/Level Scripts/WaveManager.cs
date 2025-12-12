@@ -127,7 +127,7 @@ public class WaveManager : MonoBehaviour
         // Trigger UI and Game Logic
         OnLevelComplete?.Invoke();
 
-        // Example: Call your GameManager to handle the menu
-        GameManager.Instance.ShowLevelCompleteUI();
+        // Instead of directly showing UI, it triggers the central game manager event.
+        GameManager.Instance.TriggerLevelComplete();
     }
 }
