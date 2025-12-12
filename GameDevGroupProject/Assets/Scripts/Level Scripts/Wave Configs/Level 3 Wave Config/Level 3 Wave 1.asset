@@ -13,4 +13,34 @@ MonoBehaviour:
   m_Name: Level 3 Wave 1
   m_EditorClassIdentifier: Assembly-CSharp::WaveConfig
   timeBeforeWave: 2
-  batches: []
+  batches:
+  - enemyPrefab: {fileID: 8933948006439748627, guid: 0c3a8deeb9ac4d341b4f755a5adb5fc1, type: 3}
+    count: 3
+    initialDelay: 4
+    spawnInterval: 1
+    spawnPointID: 1A
+  - enemyPrefab: {fileID: 8933948006439748627, guid: 0c3a8deeb9ac4d341b4f755a5adb5fc1, type: 3}
+    count: 3
+    initialDelay: 4
+    spawnInterval: 1
+    spawnPointID: 4A
+  - enemyPrefab: {fileID: 8933948006439748627, guid: ce650c9b554570948998d733f0e9cf80, type: 3}
+    count: 5
+    initialDelay: 2
+    spawnInterval: 2
+    spawnPointID: 2A
+  - enemyPrefab: {fileID: 8933948006439748627, guid: ce650c9b554570948998d733f0e9cf80, type: 3}
+    count: 5
+    initialDelay: 2
+    spawnInterval: 2
+    spawnPointID: 3A
+  - enemyPrefab: {fileID: 8933948006439748627, guid: 61cb52c3b5472304c923e7334c7b67cb, type: 3}
+    count: 1
+    initialDelay: 6
+    spawnInterval: 0
+    spawnPointID: 1B
+  - enemyPrefab: {fileID: 8933948006439748627, guid: 61cb52c3b5472304c923e7334c7b67cb, type: 3}
+    count: 1
+    initialDelay: 6
+    spawnInterval: 0
+    spawnPointID: 4B
