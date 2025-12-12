@@ -67,6 +67,12 @@ public class UIManager : MonoBehaviour
 
     }
 
+    public void RestartLevel()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
+    }
+
     // --- Public methods for managing game state ---
 
     public void PauseGame()
