@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     // This is now the CENTRAL place to trigger the "Level Complete" logic.
     public void TriggerLevelComplete()
     {
-        // 1. Unlock Cursor
+        // Unlock Cursor
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 

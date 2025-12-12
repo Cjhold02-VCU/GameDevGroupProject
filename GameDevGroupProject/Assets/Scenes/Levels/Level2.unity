@@ -495,6 +495,7 @@ Transform:
   m_PrefabInstance: {fileID: 1325960845}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &47280029 stripped
+--- !u!1 &47280029 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6037586187174103021, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
   m_PrefabInstance: {fileID: 2053787993}
@@ -12247,16 +12248,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5771220075756658653, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1134846835}
     - target: {fileID: 7419684379389542192, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
       propertyPath: playerStats
       value: 
       objectReference: {fileID: 2058452445}
+    - target: {fileID: 7569665420916823854, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1134846835}
     - target: {fileID: 7887949667992716394, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
       propertyPath: m_Name
       value: In-game UI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
