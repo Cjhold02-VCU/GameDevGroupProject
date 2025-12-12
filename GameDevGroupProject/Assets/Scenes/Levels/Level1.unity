@@ -4322,26 +4322,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: a352243a7ef767044a66e3541605f536, type: 3}
   m_PrefabInstance: {fileID: 603848200}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &610502566 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7887949667992716394, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
-  m_PrefabInstance: {fileID: 1158366457}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &610502571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610502566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2cb8681bd76fba4eb42324b31a61eee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  levelCompleteUI: {fileID: 0}
-  gameOverUI: {fileID: 0}
-  pauseMenuUI: {fileID: 0}
 --- !u!1001 &615880641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8537,7 +8517,7 @@ PrefabInstance:
     - target: {fileID: 2145515820981829082, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
       propertyPath: weapon
       value: 
-      objectReference: {fileID: 434250407}
+      objectReference: {fileID: 0}
     - target: {fileID: 3615462841783630930, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -8641,7 +8621,7 @@ PrefabInstance:
     - target: {fileID: 7419684379389542192, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
       propertyPath: playerStats
       value: 
-      objectReference: {fileID: 1697270930}
+      objectReference: {fileID: 0}
     - target: {fileID: 7887949667992716394, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
       propertyPath: m_Name
       value: In-game UI
@@ -8665,10 +8645,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7887949667992716394, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 610502571}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
 --- !u!1 &1158366458 stripped
 GameObject:
@@ -8677,7 +8654,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1158366459 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 6037586187174103021, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5895075221368588530, guid: 3729b5ed05668c743bcddf0189797ef4, type: 3}
   m_PrefabInstance: {fileID: 1158366457}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1164282278 stripped
@@ -16711,6 +16688,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8255029857197735424, guid: e4a37c18d80a224478b14941decbb099, type: 3}
+      propertyPath: levelCompleteUI
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2920184553033231438, guid: 84563503da5e2be4aa68c55143d572ad, type: 3}
       propertyPath: pauseMenuUI
       value: 
@@ -16762,10 +16743,6 @@ PrefabInstance:
     - target: {fileID: 5268184893599388126, guid: 84563503da5e2be4aa68c55143d572ad, type: 3}
       propertyPath: m_Name
       value: UIManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 8255029857197735424, guid: e4a37c18d80a224478b14941decbb099, type: 3}
-      propertyPath: levelCompleteUI
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16838,3 +16815,4 @@ SceneRoots:
   - {fileID: 1942057917}
   - {fileID: 221505178}
   - {fileID: 601070627}
+  - {fileID: 1158366457}
